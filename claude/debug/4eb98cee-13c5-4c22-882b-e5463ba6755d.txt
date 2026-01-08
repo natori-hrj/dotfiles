@@ -1,0 +1,327 @@
+2025-12-29T06:52:46.330Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (16.8ms): security find-generic-password -a $USER -w -s "Claude Code"
+2025-12-29T06:52:46.345Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (13.9ms): security find-generic-password -a "al4ud1de" -w -s "Claude Code-credentials"
+2025-12-29T06:52:46.360Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991166360
+2025-12-29T06:52:46.360Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:52:46.360Z [DEBUG] Temp file written successfully, size: 52566 bytes
+2025-12-29T06:52:46.360Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:52:46.360Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991166360 to /Users/al4ud1de/.claude.json
+2025-12-29T06:52:46.360Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:52:46.361Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2025-12-29T06:52:46.361Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2025-12-29T06:52:46.361Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2025-12-29T06:52:46.362Z [DEBUG] LSP server manager initialized successfully
+2025-12-29T06:52:46.362Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2025-12-29T06:52:46.363Z [DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+2025-12-29T06:52:46.365Z [DEBUG] Loading skills from: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/al4ud1de/.claude/skills, project=[]
+2025-12-29T06:52:46.415Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (48.9ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-29T06:52:46.415Z [DEBUG] installed_plugins.json doesn't exist, returning empty V2 object
+2025-12-29T06:52:46.424Z [DEBUG] Creating shell snapshot for zsh (/bin/zsh)
+2025-12-29T06:52:46.424Z [DEBUG] Looking for shell config file: /Users/al4ud1de/.zshrc
+2025-12-29T06:52:46.424Z [DEBUG] Snapshots directory: /Users/al4ud1de/.claude/shell-snapshots
+2025-12-29T06:52:46.424Z [DEBUG] Creating snapshot at: /Users/al4ud1de/.claude/shell-snapshots/snapshot-zsh-1766991166424-60il6l.sh
+2025-12-29T06:52:46.424Z [DEBUG] Shell binary exists: true
+2025-12-29T06:52:46.424Z [DEBUG] Execution timeout: 10000ms
+2025-12-29T06:52:46.425Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude/todos/4eb98cee-13c5-4c22-882b-e5463ba6755d-agent-4eb98cee-13c5-4c22-882b-e5463ba6755d.json.tmp.66392.1766991166425
+2025-12-29T06:52:46.425Z [DEBUG] Temp file written successfully, size: 2 bytes
+2025-12-29T06:52:46.425Z [DEBUG] Renaming /Users/al4ud1de/.claude/todos/4eb98cee-13c5-4c22-882b-e5463ba6755d-agent-4eb98cee-13c5-4c22-882b-e5463ba6755d.json.tmp.66392.1766991166425 to /Users/al4ud1de/.claude/todos/4eb98cee-13c5-4c22-882b-e5463ba6755d-agent-4eb98cee-13c5-4c22-882b-e5463ba6755d.json
+2025-12-29T06:52:46.425Z [DEBUG] File /Users/al4ud1de/.claude/todos/4eb98cee-13c5-4c22-882b-e5463ba6755d-agent-4eb98cee-13c5-4c22-882b-e5463ba6755d.json written atomically
+2025-12-29T06:52:46.429Z [DEBUG] getPluginSkills: Processing 0 enabled plugins
+2025-12-29T06:52:46.429Z [DEBUG] Total plugin skills loaded: 0
+2025-12-29T06:52:46.429Z [DEBUG] Total plugin commands loaded: 0
+2025-12-29T06:52:46.429Z [DEBUG] Registered 0 hooks from 0 plugins
+2025-12-29T06:52:46.433Z [DEBUG] Loaded 0 unique skills (managed: 0, user: 0, project: 0, legacy commands: 0)
+2025-12-29T06:52:46.434Z [DEBUG] getSkills returning: 0 skill dir commands, 0 plugin skills
+2025-12-29T06:52:46.435Z [DEBUG] Total plugin agents loaded: 0
+2025-12-29T06:52:46.603Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991166603
+2025-12-29T06:52:46.603Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:52:46.603Z [DEBUG] Temp file written successfully, size: 52566 bytes
+2025-12-29T06:52:46.603Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:52:46.603Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991166603 to /Users/al4ud1de/.claude.json
+2025-12-29T06:52:46.603Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:52:46.608Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991166608
+2025-12-29T06:52:46.608Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:52:46.609Z [DEBUG] Temp file written successfully, size: 52602 bytes
+2025-12-29T06:52:46.609Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:52:46.609Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991166608 to /Users/al4ud1de/.claude.json
+2025-12-29T06:52:46.609Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:52:46.609Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991166609
+2025-12-29T06:52:46.609Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:52:46.610Z [DEBUG] Temp file written successfully, size: 52654 bytes
+2025-12-29T06:52:46.610Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:52:46.610Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991166609 to /Users/al4ud1de/.claude.json
+2025-12-29T06:52:46.610Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:52:46.610Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991166610
+2025-12-29T06:52:46.610Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:52:46.611Z [DEBUG] Temp file written successfully, size: 52684 bytes
+2025-12-29T06:52:46.611Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:52:46.611Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991166610 to /Users/al4ud1de/.claude.json
+2025-12-29T06:52:46.611Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:52:46.611Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991166611
+2025-12-29T06:52:46.611Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:52:46.611Z [DEBUG] Temp file written successfully, size: 52714 bytes
+2025-12-29T06:52:46.611Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:52:46.611Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991166611 to /Users/al4ud1de/.claude.json
+2025-12-29T06:52:46.612Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:52:46.617Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991166617
+2025-12-29T06:52:46.617Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:52:46.617Z [DEBUG] Temp file written successfully, size: 52739 bytes
+2025-12-29T06:52:46.617Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:52:46.617Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991166617 to /Users/al4ud1de/.claude.json
+2025-12-29T06:52:46.617Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:52:46.618Z [DEBUG] Acquired mtime-based lock on running version: /Users/al4ud1de/.local/share/claude/versions/2.0.76
+2025-12-29T06:52:46.648Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991166648
+2025-12-29T06:52:46.648Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:52:46.648Z [DEBUG] Temp file written successfully, size: 52739 bytes
+2025-12-29T06:52:46.648Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:52:46.648Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991166648 to /Users/al4ud1de/.claude.json
+2025-12-29T06:52:46.648Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:52:46.695Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991166695
+2025-12-29T06:52:46.695Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:52:46.695Z [DEBUG] Temp file written successfully, size: 52776 bytes
+2025-12-29T06:52:46.695Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:52:46.695Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991166695 to /Users/al4ud1de/.claude.json
+2025-12-29T06:52:46.695Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:52:46.697Z [DEBUG] Git remote URL: null
+2025-12-29T06:52:46.697Z [DEBUG] No git remote URL found
+2025-12-29T06:52:46.697Z [DEBUG] Not in a GitHub repository, skipping path mapping update
+2025-12-29T06:52:46.699Z [DEBUG] Shell snapshot created successfully (2801 bytes)
+2025-12-29T06:52:46.915Z [DEBUG] Successfully refreshed marketplace: claude-plugins-official
+2025-12-29T06:52:46.915Z [DEBUG] Plugin autoupdate: checking installed plugins
+2025-12-29T06:52:47.042Z [DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/Users/al4ud1de/.local/share/claude/versions/2.0.76)
+2025-12-29T06:53:04.246Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991184246
+2025-12-29T06:53:04.247Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:53:04.247Z [DEBUG] Temp file written successfully, size: 52806 bytes
+2025-12-29T06:53:04.247Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:53:04.247Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991184246 to /Users/al4ud1de/.claude.json
+2025-12-29T06:53:04.248Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:53:04.250Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991184250
+2025-12-29T06:53:04.250Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:53:04.251Z [DEBUG] Temp file written successfully, size: 52806 bytes
+2025-12-29T06:53:04.251Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:53:04.251Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991184250 to /Users/al4ud1de/.claude.json
+2025-12-29T06:53:04.251Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:55:47.135Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (40.5ms): security delete-generic-password -a $USER -s "Claude Code"
+2025-12-29T06:55:47.136Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991347136
+2025-12-29T06:55:47.136Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:55:47.136Z [DEBUG] Temp file written successfully, size: 52806 bytes
+2025-12-29T06:55:47.136Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:55:47.136Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991347136 to /Users/al4ud1de/.claude.json
+2025-12-29T06:55:47.136Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:55:47.156Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (19.4ms): security delete-generic-password -a "al4ud1de" -s "Claude Code-credentials"
+2025-12-29T06:55:47.173Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (15.9ms): security find-generic-password -a $USER -w -s "Claude Code"
+2025-12-29T06:55:47.187Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (14.4ms): security find-generic-password -a "al4ud1de" -w -s "Claude Code-credentials"
+2025-12-29T06:55:47.189Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991347189
+2025-12-29T06:55:47.189Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:55:47.190Z [DEBUG] Temp file written successfully, size: 52806 bytes
+2025-12-29T06:55:47.190Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:55:47.190Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991347189 to /Users/al4ud1de/.claude.json
+2025-12-29T06:55:47.190Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:55:47.956Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991347956
+2025-12-29T06:55:47.956Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:55:47.957Z [DEBUG] Temp file written successfully, size: 53060 bytes
+2025-12-29T06:55:47.957Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:55:47.957Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991347956 to /Users/al4ud1de/.claude.json
+2025-12-29T06:55:47.957Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:55:47.995Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (36.2ms): security find-generic-password -a "al4ud1de" -w -s "Claude Code-credentials"
+2025-12-29T06:55:48.014Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (19.1ms): security find-generic-password -a "al4ud1de" -w -s "Claude Code-credentials"
+2025-12-29T06:55:48.272Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991348272
+2025-12-29T06:55:48.273Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:55:48.273Z [DEBUG] Temp file written successfully, size: 53182 bytes
+2025-12-29T06:55:48.273Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:55:48.273Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991348272 to /Users/al4ud1de/.claude.json
+2025-12-29T06:55:48.273Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:55:48.317Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (43.3ms): security find-generic-password -a "al4ud1de" -w -s "Claude Code-credentials"
+2025-12-29T06:55:48.544Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991348544
+2025-12-29T06:55:48.544Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:55:48.545Z [DEBUG] Temp file written successfully, size: 53243 bytes
+2025-12-29T06:55:48.545Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:55:48.545Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991348544 to /Users/al4ud1de/.claude.json
+2025-12-29T06:55:48.545Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:55:48.548Z [DEBUG] Skipping Notification:auth_success hook execution - workspace trust not accepted
+2025-12-29T06:55:48.591Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults_DEPRECATED (42.0ms): security find-generic-password -a "al4ud1de" -w -s "Claude Code-credentials"
+2025-12-29T06:56:03.378Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991363378
+2025-12-29T06:56:03.378Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:56:03.379Z [DEBUG] Temp file written successfully, size: 53284 bytes
+2025-12-29T06:56:03.379Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:56:03.379Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991363378 to /Users/al4ud1de/.claude.json
+2025-12-29T06:56:03.380Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:56:03.383Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991363383
+2025-12-29T06:56:03.383Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:56:03.384Z [DEBUG] Temp file written successfully, size: 53355 bytes
+2025-12-29T06:56:03.384Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:56:03.384Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991363383 to /Users/al4ud1de/.claude.json
+2025-12-29T06:56:03.384Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:56:12.947Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991372947
+2025-12-29T06:56:12.947Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:56:12.948Z [DEBUG] Temp file written successfully, size: 53760 bytes
+2025-12-29T06:56:12.948Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:56:12.948Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991372947 to /Users/al4ud1de/.claude.json
+2025-12-29T06:56:12.948Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:56:13.171Z [DEBUG] Metrics opt-out API response: enabled=true, vcsLinking=false
+2025-12-29T06:56:13.483Z [DEBUG] Initialized versioned plugins system with 0 plugins
+2025-12-29T06:56:13.486Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991373486
+2025-12-29T06:56:13.486Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:56:13.487Z [DEBUG] Temp file written successfully, size: 53780 bytes
+2025-12-29T06:56:13.487Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:56:13.487Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991373486 to /Users/al4ud1de/.claude.json
+2025-12-29T06:56:13.487Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:56:13.490Z [DEBUG] Getting matching hook commands for SessionStart with query: startup
+2025-12-29T06:56:13.490Z [DEBUG] Found 0 hook matchers in settings
+2025-12-29T06:56:13.490Z [DEBUG] Matched 0 unique hooks for query "startup" (0 before deduplication)
+2025-12-29T06:56:13.495Z [DEBUG] Skills and commands included in Skill tool:
+2025-12-29T06:56:13.498Z [DEBUG] Getting matching hook commands for SubagentStart with query: Explore
+2025-12-29T06:56:13.498Z [DEBUG] Found 0 hook matchers in settings
+2025-12-29T06:56:13.498Z [DEBUG] Matched 0 unique hooks for query "Explore" (0 before deduplication)
+2025-12-29T06:56:13.500Z [DEBUG] Getting matching hook commands for SubagentStart with query: Plan
+2025-12-29T06:56:13.500Z [DEBUG] Found 0 hook matchers in settings
+2025-12-29T06:56:13.500Z [DEBUG] Matched 0 unique hooks for query "Plan" (0 before deduplication)
+2025-12-29T06:56:13.532Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991373532
+2025-12-29T06:56:13.532Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:56:13.532Z [DEBUG] Temp file written successfully, size: 53816 bytes
+2025-12-29T06:56:13.532Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:56:13.532Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991373532 to /Users/al4ud1de/.claude.json
+2025-12-29T06:56:13.532Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:56:13.533Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991373533
+2025-12-29T06:56:13.533Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:56:13.533Z [DEBUG] Temp file written successfully, size: 53816 bytes
+2025-12-29T06:56:13.533Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:56:13.533Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991373533 to /Users/al4ud1de/.claude.json
+2025-12-29T06:56:13.533Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:56:13.534Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991373534
+2025-12-29T06:56:13.534Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:56:13.534Z [DEBUG] Temp file written successfully, size: 53898 bytes
+2025-12-29T06:56:13.534Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:56:13.534Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991373534 to /Users/al4ud1de/.claude.json
+2025-12-29T06:56:13.534Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:56:13.536Z [DEBUG] Official marketplace auto-install skipped: already_attempted
+2025-12-29T06:56:13.536Z [DEBUG] performStartupChecks called
+2025-12-29T06:56:13.536Z [DEBUG] Starting background plugin installations
+2025-12-29T06:56:13.536Z [DEBUG] performBackgroundPluginInstallations called
+2025-12-29T06:56:13.539Z [DEBUG] AutoUpdaterWrapper: Installation type: native
+2025-12-29T06:56:13.539Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991373539
+2025-12-29T06:56:13.539Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:56:13.540Z [DEBUG] Temp file written successfully, size: 53955 bytes
+2025-12-29T06:56:13.540Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:56:13.540Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991373539 to /Users/al4ud1de/.claude.json
+2025-12-29T06:56:13.540Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:56:13.540Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991373540
+2025-12-29T06:56:13.540Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:56:13.541Z [DEBUG] Temp file written successfully, size: 54003 bytes
+2025-12-29T06:56:13.541Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:56:13.541Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991373540 to /Users/al4ud1de/.claude.json
+2025-12-29T06:56:13.541Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:56:13.541Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991373541
+2025-12-29T06:56:13.541Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:56:13.542Z [DEBUG] Temp file written successfully, size: 54076 bytes
+2025-12-29T06:56:13.542Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:56:13.542Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991373541 to /Users/al4ud1de/.claude.json
+2025-12-29T06:56:13.542Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:56:13.542Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991373542
+2025-12-29T06:56:13.542Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:56:13.542Z [DEBUG] Temp file written successfully, size: 54123 bytes
+2025-12-29T06:56:13.542Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:56:13.542Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991373542 to /Users/al4ud1de/.claude.json
+2025-12-29T06:56:13.543Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:56:13.543Z [DEBUG] Setting installation status: 0 marketplaces, 0 installable plugins, 0 uninstallable plugins
+2025-12-29T06:56:13.543Z [DEBUG] Loaded plugins - Enabled: 0, Disabled: 0, Commands: 0, Agents: 0, Errors: 0
+2025-12-29T06:56:13.552Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991373552
+2025-12-29T06:56:13.552Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:56:13.552Z [DEBUG] Temp file written successfully, size: 54169 bytes
+2025-12-29T06:56:13.552Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:56:13.552Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991373552 to /Users/al4ud1de/.claude.json
+2025-12-29T06:56:13.552Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:56:13.559Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991373559
+2025-12-29T06:56:13.559Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:56:13.559Z [DEBUG] Temp file written successfully, size: 54350 bytes
+2025-12-29T06:56:13.559Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:56:13.559Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991373559 to /Users/al4ud1de/.claude.json
+2025-12-29T06:56:13.559Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:56:13.560Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991373560
+2025-12-29T06:56:13.560Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:56:13.560Z [DEBUG] Temp file written successfully, size: 54350 bytes
+2025-12-29T06:56:13.560Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:56:13.560Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991373560 to /Users/al4ud1de/.claude.json
+2025-12-29T06:56:13.560Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:56:13.677Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.66392.1766991373677
+2025-12-29T06:56:13.677Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:56:13.677Z [DEBUG] Temp file written successfully, size: 54526 bytes
+2025-12-29T06:56:13.677Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:56:13.677Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.66392.1766991373677 to /Users/al4ud1de/.claude.json
+2025-12-29T06:56:13.677Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:56:14.244Z [DEBUG] Stream started - received first chunk
+2025-12-29T06:56:14.263Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T06:56:14.263Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T06:56:14.786Z [DEBUG] Stream started - received first chunk
+2025-12-29T06:56:15.294Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2025-12-29T06:56:15.294Z [DEBUG] Found 0 hook matchers in settings
+2025-12-29T06:56:15.294Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-29T06:56:21.100Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2025-12-29T06:56:21.100Z [DEBUG] Found 0 hook matchers in settings
+2025-12-29T06:56:21.100Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2025-12-29T07:29:44.801Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T07:29:44.802Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T08:03:53.381Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T08:03:53.382Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T08:37:11.090Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T08:37:11.091Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T09:11:28.775Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T09:11:28.775Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T09:46:51.305Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T09:46:51.306Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T10:28:31.380Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T10:28:31.380Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T11:01:06.216Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T11:01:06.216Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T11:42:05.943Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T11:42:05.943Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T12:14:29.357Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T12:14:29.357Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T12:48:44.469Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T12:48:44.470Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T13:32:41.345Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T13:32:41.345Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T14:04:36.184Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T14:04:36.184Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T14:48:41.421Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T14:48:41.421Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T15:33:56.974Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T15:33:56.974Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T16:08:35.359Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T16:08:35.359Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T16:51:44.132Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T16:51:44.132Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T17:22:36.761Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T17:22:36.761Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T17:57:38.847Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T17:57:38.847Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T17:57:51.944Z [ERROR] Error: Error: 1P event logging: 5 events failed to export
+    at queueFailedEvents (/$bunfs/root/claude:190:35345)
+    at doExport (/$bunfs/root/claude:190:34453)
+    at processTicksAndRejections (native:7:39)
+2025-12-29T17:57:51.945Z [ERROR] Error: Error: {"message":"Failed to export 5 events","originalLine":"190","originalColumn":"34532","line":"190","column":"34532","sourceURL":"/$bunfs/root/claude","stack":"Error: Failed to export 5 events\n    at doExport (/$bunfs/root/claude:190:34532)\n    at processTicksAndRejections (native:7:39)","name":"Error"}
+    at error (/$bunfs/root/claude:1618:25028)
+    at <anonymous> (/$bunfs/root/claude:189:61116)
+    at _VD (/$bunfs/root/claude:189:61660)
+    at <anonymous> (/$bunfs/root/claude:190:17366)
+    at processTicksAndRejections (native:7:39)
+2025-12-29T18:30:48.518Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T18:30:48.518Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T19:14:53.722Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T19:14:53.722Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T19:47:05.189Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T19:47:05.190Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T20:20:58.355Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T20:20:58.355Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T20:54:56.257Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T20:54:56.257Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T21:30:20.466Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T21:30:20.466Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T22:05:01.458Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T22:05:01.459Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T22:42:02.057Z [DEBUG] [SLOW OPERATION DETECTED] fs.existsSync (58.2ms)
+2025-12-29T22:42:03.588Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T22:42:03.588Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T23:18:01.520Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T23:18:01.520Z [DEBUG] Already running version 2.0.76 - no update needed
+2025-12-29T23:52:38.743Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T23:52:38.743Z [DEBUG] Already running version 2.0.76 - no update needed

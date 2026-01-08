@@ -1,0 +1,72 @@
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
+
+export default function Blog() {
+  const t = useTranslations('blog');
+
+  const posts = [
+    {
+      id: 1,
+      title: 'Getting Started with Next.js 15',
+      excerpt: 'Learn about the new features in Next.js 15 and how to migrate your existing projects',
+      date: '2024-01-15',
+      slug: 'getting-started-nextjs-15',
+    },
+    {
+      id: 2,
+      title: 'Building a Full Stack Application',
+      excerpt: 'A comprehensive guide to building modern full stack applications with React and Node.js',
+      date: '2024-01-10',
+      slug: 'building-fullstack-app',
+    },
+    {
+      id: 3,
+      title: 'Tailwind CSS Best Practices',
+      excerpt: 'Tips and tricks for writing maintainable Tailwind CSS code in large projects',
+      date: '2024-01-05',
+      slug: 'tailwind-best-practices',
+    },
+  ];
+
+  return (
+    <div className="container mx-auto px-4 py-12">
+      <div className="max-w-4xl mx-auto">
+        {/* Header */}
+        <div className="mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">{t('title')}</h1>
+          <p className="text-lg text-gray-600 dark:text-gray-400">{t('description')}</p>
+        </div>
+
+        {/* Blog Posts */}
+        <div className="space-y-8">
+          {posts.map((post) => (
+            <article
+              key={post.id}
+              className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg transition-shadow"
+            >
+              <Link href={`/blog/${post.slug}`}>
+                <h2 className="text-2xl font-semibold mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  {post.title}
+                </h2>
+              </Link>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">
+                {new Date(post.date).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </p>
+              <p className="text-gray-700 dark:text-gray-300 mb-4">{post.excerpt}</p>
+              <Link
+                href={`/blog/${post.slug}`}
+                className="text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                {t('readMore')} →
+              </Link>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}

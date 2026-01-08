@@ -1,0 +1,165 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
+import { useState, FormEvent } from 'react';
+
+export default function Contact() {
+  const t = useTranslations('contact');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      // In a real application, you would send this to an API endpoint
+      // For now, we'll just simulate a successful submission
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+
+      setTimeout(() => setStatus('idle'), 5000);
+    } catch (error) {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 5000);
+    }
+  };
+
+  return (
+    <div className="container mx-auto px-4 py-12">
+      <div className="max-w-2xl mx-auto">
+        {/* Header */}
+        <div className="mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">{t('title')}</h1>
+          <p className="text-lg text-gray-600 dark:text-gray-400">{t('description')}</p>
+        </div>
+
+        {/* Contact Form */}
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Name Field */}
+          <div>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium mb-2"
+            >
+              {t('name')}
+            </label>
+            <input
+              type="text"
+              id="name"
+              required
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent bg-white dark:bg-gray-800"
+            />
+          </div>
+
+          {/* Email Field */}
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium mb-2"
+            >
+              {t('email')}
+            </label>
+            <input
+              type="email"
+              id="email"
+              required
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent bg-white dark:bg-gray-800"
+            />
+          </div>
+
+          {/* Message Field */}
+          <div>
+            <label
+              htmlFor="message"
+              className="block text-sm font-medium mb-2"
+            >
+              {t('message')}
+            </label>
+            <textarea
+              id="message"
+              required
+              rows={6}
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent bg-white dark:bg-gray-800 resize-none"
+            />
+          </div>
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+          >
+            {t('send')}
+          </button>
+
+          {/* Status Messages */}
+          {status === 'success' && (
+            <div className="p-4 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-lg">
+              {t('success')}
+            </div>
+          )}
+          {status === 'error' && (
+            <div className="p-4 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-lg">
+              {t('error')}
+            </div>
+          )}
+        </form>
+
+        {/* Contact Info */}
+        <div className="mt-12 pt-12 border-t border-gray-200 dark:border-gray-700">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h3 className="font-semibold mb-2">Email</h3>
+              <a
+                href="mailto:your.email@example.com"
+                className="text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                your.email@example.com
+              </a>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-2">Social Media</h3>
+              <div className="flex gap-4">
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                >
+                  GitHub
+                </a>
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                >
+                  Twitter
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                >
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

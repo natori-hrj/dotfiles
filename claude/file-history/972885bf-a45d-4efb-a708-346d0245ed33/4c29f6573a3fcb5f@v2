@@ -1,0 +1,50 @@
+import type { Metadata } from "next";
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+import { notFound } from 'next/navigation';
+import { routing } from '@/i18n/routing';
+import { ThemeProvider } from '@/components/ThemeProvider';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
+import "../globals.css";
+
+export const metadata: Metadata = {
+  title: "Portfolio",
+  description: "Personal portfolio website",
+};
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
+  if (!routing.locales.includes(locale as 'en' | 'ja')) {
+    notFound();
+  }
+
+  const messages = await getMessages();
+
+  return (
+    <html lang={locale} suppressHydrationWarning>
+      <body className="antialiased flex flex-col min-h-screen">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <NextIntlClientProvider messages={messages}>
+            <Navigation />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+          </NextIntlClientProvider>
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+}

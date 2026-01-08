@@ -1,0 +1,25 @@
+'use client';
+
+import { useLocale } from 'next-intl';
+import { useRouter, usePathname } from '@/i18n/routing';
+
+export default function LanguageSwitcher() {
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const toggleLocale = () => {
+    const newLocale = locale === 'en' ? 'ja' : 'en';
+    router.replace(pathname, { locale: newLocale });
+  };
+
+  return (
+    <button
+      onClick={toggleLocale}
+      className="px-4 py-2 rounded-md bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+      aria-label="Switch language"
+    >
+      {locale === 'en' ? '日本語' : 'English'}
+    </button>
+  );
+}

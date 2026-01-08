@@ -1,0 +1,76 @@
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
+
+export default function Home() {
+  const t = useTranslations('home');
+  const tNav = useTranslations('nav');
+
+  return (
+    <div>
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 py-20 md:py-32">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            {t('title')}
+          </h1>
+          <p className="text-2xl md:text-3xl text-gray-700 dark:text-gray-300 mb-4">
+            {t('subtitle')}
+          </p>
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-12">
+            {t('description')}
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/projects"
+              className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+            >
+              {tNav('projects')}
+            </Link>
+            <Link
+              href="/contact"
+              className="px-8 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors font-medium"
+            >
+              {tNav('contact')}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Links Section */}
+      <section className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <Link
+            href="/about"
+            className="p-6 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-lg transition-shadow"
+          >
+            <h3 className="text-xl font-semibold mb-2">{tNav('about')}</h3>
+            <p className="text-gray-600 dark:text-gray-400">
+              Learn more about my background and skills
+            </p>
+          </Link>
+
+          <Link
+            href="/projects"
+            className="p-6 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-lg transition-shadow"
+          >
+            <h3 className="text-xl font-semibold mb-2">{tNav('projects')}</h3>
+            <p className="text-gray-600 dark:text-gray-400">
+              Check out my recent work and projects
+            </p>
+          </Link>
+
+          <Link
+            href="/blog"
+            className="p-6 border border-gray-200 dark:border-gray-700 rounded-lg hover:shadow-lg transition-shadow"
+          >
+            <h3 className="text-xl font-semibold mb-2">{tNav('blog')}</h3>
+            <p className="text-gray-600 dark:text-gray-400">
+              Read my thoughts and tutorials
+            </p>
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+}

@@ -1,0 +1,301 @@
+# Google Cloud Run デプロイガイド
+
+このガイドでは、GitHub ActionsでGoogle Cloud Runに自動デプロイする方法を説明します。
+
+## 前提条件
+
+- Google Cloud Platform アカウント
+- GitHub リポジトリ
+- `gcloud` CLI（ローカルでテストする場合）
+
+## Google Cloud の設定
+
+### 1. プロジェクトの作成
+
+```bash
+# プロジェクトIDを設定（任意の名前）
+export PROJECT_ID="your-project-id"
+
+# プロジェクトを作成
+gcloud projects create $PROJECT_ID
+
+# プロジェクトを選択
+gcloud config set project $PROJECT_ID
+```
+
+### 2. 必要なAPIの有効化
+
+```bash
+# Cloud Run API
+gcloud services enable run.googleapis.com
+
+# Artifact Registry API
+gcloud services enable artifactregistry.googleapis.com
+
+# Cloud Build API
+gcloud services enable cloudbuild.googleapis.com
+```
+
+### 3. Artifact Registryリポジトリの作成
+
+```bash
+# リージョンを設定（東京）
+export REGION="asia-northeast1"
+
+# Docker リポジトリを作成
+gcloud artifacts repositories create portfolio \
+  --repository-format=docker \
+  --location=$REGION \
+  --description="Portfolio Docker repository"
+```
+
+### 4. 認証の設定
+
+2つの認証方法があります：
+
+#### オプション A: サービスアカウントキー（簡単、すぐに使える）
+
+```bash
+# サービスアカウントを作成
+gcloud iam service-accounts create github-actions \
+  --description="Service account for GitHub Actions" \
+  --display-name="GitHub Actions"
+
+# 必要な権限を付与
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member="serviceAccount:github-actions@$PROJECT_ID.iam.gserviceaccount.com" \
+  --role="roles/run.admin"
+
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member="serviceAccount:github-actions@$PROJECT_ID.iam.gserviceaccount.com" \
+  --role="roles/artifactregistry.writer"
+
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member="serviceAccount:github-actions@$PROJECT_ID.iam.gserviceaccount.com" \
+  --role="roles/iam.serviceAccountUser"
+
+# JSONキーを生成
+gcloud iam service-accounts keys create key.json \
+  --iam-account=github-actions@$PROJECT_ID.iam.gserviceaccount.com
+```
+
+**GitHub Secrets（サービスアカウントキー方式）:**
+
+1. **GCP_PROJECT_ID** - あなたのGCPプロジェクトID
+2. **GCP_SA_KEY** - `key.json` の内容全体をコピー
+
+**ワークフローファイル:** `.github/workflows/deploy.yml` を使用
+
+---
+
+#### オプション B: Workload Identity Federation（推奨、より安全）
+
+```bash
+# Workload Identity Poolを作成
+gcloud iam workload-identity-pools create "github" \
+  --project="$PROJECT_ID" \
+  --location="global" \
+  --display-name="GitHub Actions Pool"
+
+# Workload Identity Providerを作成
+gcloud iam workload-identity-pools providers create-oidc "github-provider" \
+  --project="$PROJECT_ID" \
+  --location="global" \
+  --workload-identity-pool="github" \
+  --display-name="GitHub Provider" \
+  --attribute-mapping="google.subject=assertion.sub,attribute.actor=assertion.actor,attribute.repository=assertion.repository" \
+  --issuer-uri="https://token.actions.githubusercontent.com"
+
+# サービスアカウントを作成
+gcloud iam service-accounts create github-actions-wif \
+  --display-name="GitHub Actions WIF"
+
+# 権限を付与
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member="serviceAccount:github-actions-wif@$PROJECT_ID.iam.gserviceaccount.com" \
+  --role="roles/run.admin"
+
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member="serviceAccount:github-actions-wif@$PROJECT_ID.iam.gserviceaccount.com" \
+  --role="roles/artifactregistry.writer"
+
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member="serviceAccount:github-actions-wif@$PROJECT_ID.iam.gserviceaccount.com" \
+  --role="roles/iam.serviceAccountUser"
+
+# GitHubリポジトリからのアクセスを許可（YOUR_GITHUBを置き換え）
+gcloud iam service-accounts add-iam-policy-binding \
+  github-actions-wif@$PROJECT_ID.iam.gserviceaccount.com \
+  --project="$PROJECT_ID" \
+  --role="roles/iam.workloadIdentityUser" \
+  --member="principalSet://iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/github/attribute.repository/YOUR_GITHUB_USERNAME/portfolio"
+
+# Workload Identity Provider URLを取得
+gcloud iam workload-identity-pools providers describe "github-provider" \
+  --project="$PROJECT_ID" \
+  --location="global" \
+  --workload-identity-pool="github" \
+  --format="value(name)"
+```
+
+**GitHub Secrets（Workload Identity Federation方式）:**
+
+1. **GCP_PROJECT_ID** - あなたのGCPプロジェクトID
+2. **WIF_PROVIDER** - 上記コマンドで取得したProvider URL
+3. **WIF_SERVICE_ACCOUNT** - `github-actions-wif@PROJECT_ID.iam.gserviceaccount.com`
+
+**ワークフローファイル:** `.github/workflows/deploy-with-wif.yml` の名前を `deploy.yml` に変更して使用
+
+---
+
+## GitHub Secretsの設定場所
+
+GitHubリポジトリの **Settings > Secrets and variables > Actions** で設定：
+
+1. "New repository secret" をクリック
+2. シークレット名と値を入力
+3. "Add secret" をクリック
+
+## デプロイ方法
+
+### 自動デプロイ
+
+`main` ブランチにプッシュすると自動的にデプロイされます：
+
+```bash
+git add .
+git commit -m "Deploy to Cloud Run"
+git push origin main
+```
+
+### 手動デプロイ
+
+GitHubのActionsタブから「Deploy to Cloud Run」ワークフローを手動実行できます。
+
+## ローカルでのDockerテスト
+
+```bash
+# イメージをビルド
+docker build -t portfolio .
+
+# コンテナを実行
+docker run -p 3000:3000 portfolio
+
+# ブラウザで http://localhost:3000 にアクセス
+```
+
+## 設定のカスタマイズ
+
+### リージョンの変更
+
+`.github/workflows/deploy.yml` の `REGION` を変更：
+
+```yaml
+env:
+  REGION: us-central1  # または他のリージョン
+```
+
+### リソース設定の調整
+
+`deploy.yml` のCloud Runデプロイ設定を調整：
+
+```yaml
+--memory 1Gi          # メモリを増やす
+--cpu 2              # CPUを増やす
+--min-instances 1    # 常に1インスタンス起動
+--max-instances 100  # 最大インスタンス数を増やす
+```
+
+## コスト最適化
+
+- **最小インスタンス数**: `0` に設定してアイドル時のコストを削減
+- **メモリ**: 必要最小限に設定（デフォルト: 512Mi）
+- **CPU**: 必要に応じて調整（デフォルト: 1）
+- **リクエストタイムアウト**: 適切に設定
+
+## トラブルシューティング
+
+### エラー: "must specify exactly one of workload_identity_provider or credentials_json"
+
+このエラーが表示される場合：
+
+1. **GitHub Secretsが正しく設定されているか確認**
+   - GitHubリポジトリの Settings > Secrets and variables > Actions
+   - `GCP_PROJECT_ID` と `GCP_SA_KEY` が設定されているか
+   - シークレット名が正確に一致しているか（大文字小文字も含む）
+
+2. **GCP_SA_KEYの内容を確認**
+   ```bash
+   # key.jsonの内容全体をコピー（{}を含む）
+   cat key.json
+   ```
+   - JSONの形式が正しいか
+   - 改行やスペースが含まれていないか
+
+3. **シークレットの再設定**
+   - 既存のシークレットを削除
+   - 新しく作成し直す
+
+4. **ワークフローファイルの確認**
+   - `.github/workflows/deploy.yml` が最新版か
+   - シークレット参照が `${{ secrets.GCP_SA_KEY }}` となっているか
+
+### デプロイが失敗する場合
+
+1. GitHub Actionsのログを確認
+2. GCP権限を確認
+3. Artifact Registryにイメージがプッシュされているか確認
+
+```bash
+# イメージ一覧を確認
+gcloud artifacts docker images list $REGION-docker.pkg.dev/$PROJECT_ID/portfolio
+```
+
+### "Permission denied" エラー
+
+サービスアカウントに適切な権限がない場合：
+
+```bash
+# 権限を再度付与
+gcloud projects add-iam-policy-binding $PROJECT_ID \
+  --member="serviceAccount:github-actions@$PROJECT_ID.iam.gserviceaccount.com" \
+  --role="roles/run.admin"
+```
+
+### Cloud Runサービスのログ確認
+
+```bash
+# ログを確認
+gcloud run services logs read portfolio --region=$REGION --limit=50
+```
+
+### サービスの削除
+
+```bash
+# Cloud Runサービスを削除
+gcloud run services delete portfolio --region=$REGION
+
+# Artifact Registryリポジトリを削除
+gcloud artifacts repositories delete portfolio --location=$REGION
+```
+
+## セキュリティのベストプラクティス
+
+1. **サービスアカウントキーの管理**
+   - GitHub Secretsに安全に保存
+   - 定期的にローテーション
+   - 必要最小限の権限のみ付与
+
+2. **環境変数**
+   - 機密情報はGitHub SecretsまたはSecret Managerを使用
+   - Cloud Runの環境変数として設定
+
+3. **認証**
+   - 本番環境では `--allow-unauthenticated` を慎重に使用
+   - 必要に応じてCloud Run IAMで認証を設定
+
+## 参考リンク
+
+- [Cloud Run ドキュメント](https://cloud.google.com/run/docs)
+- [GitHub Actions ドキュメント](https://docs.github.com/ja/actions)
+- [Next.js デプロイメント](https://nextjs.org/docs/deployment)

@@ -1,0 +1,63 @@
+# Portfolio
+
+Personal portfolio website built with Next.js, TypeScript, and Tailwind CSS.
+
+## Features
+
+- 🌐 Bilingual support (Japanese/English)
+- 📱 Responsive design
+- 🌙 Dark mode support
+- 📝 Blog functionality
+- 💼 Project showcase
+- 📧 Contact form
+
+## Getting Started
+
+First, install dependencies:
+
+```bash
+npm install
+```
+
+Then, run the development server:
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Tech Stack
+
+- Next.js 15
+- React 19
+- TypeScript
+- Tailwind CSS
+- ESLint
+
+## Deployment
+
+This project is configured for deployment to Google Cloud Run using GitHub Actions.
+
+### Quick Deploy
+
+1. Set up Google Cloud Project (see [DEPLOYMENT.md](./DEPLOYMENT.md))
+2. Add GitHub Secrets:
+   - `GCP_PROJECT_ID`
+   - `GCP_SA_KEY`
+3. Push to `main` branch
+
+For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md).
+
+### Docker
+
+Build and run locally:
+
+```bash
+docker build -t portfolio .
+docker run -p 3000:3000 portfolio
+```
+
+## License
+
+MIT

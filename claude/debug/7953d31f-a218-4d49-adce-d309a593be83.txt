@@ -1,0 +1,129 @@
+2025-12-29T06:18:48.661Z [ERROR] Failed to save config with lock: Error: ENOENT: no such file or directory, lstat '/Users/al4ud1de/.claude.json'
+2025-12-29T06:18:48.662Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.63445.1766989128661
+2025-12-29T06:18:48.662Z [DEBUG] Setting permissions for new file: 600
+2025-12-29T06:18:48.662Z [DEBUG] Temp file written successfully, size: 82 bytes
+2025-12-29T06:18:48.662Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.63445.1766989128661 to /Users/al4ud1de/.claude.json
+2025-12-29T06:18:48.662Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:18:48.682Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (20.2ms): security find-generic-password -a $USER -w -s "Claude Code"
+2025-12-29T06:18:48.696Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (13.4ms): security find-generic-password -a "al4ud1de" -w -s "Claude Code-credentials"
+2025-12-29T06:18:48.700Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.63445.1766989128700
+2025-12-29T06:18:48.700Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:18:48.700Z [DEBUG] Temp file written successfully, size: 130 bytes
+2025-12-29T06:18:48.700Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:18:48.700Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.63445.1766989128700 to /Users/al4ud1de/.claude.json
+2025-12-29T06:18:48.700Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:18:48.703Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2025-12-29T06:18:48.703Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2025-12-29T06:18:48.703Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2025-12-29T06:18:48.703Z [DEBUG] [LSP SERVER MANAGER] initialize() called
+2025-12-29T06:18:48.703Z [DEBUG] [LSP SERVER MANAGER] Calling getAllLspServers()
+2025-12-29T06:18:48.703Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.63445.1766989128703
+2025-12-29T06:18:48.703Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:18:48.703Z [DEBUG] Temp file written successfully, size: 167 bytes
+2025-12-29T06:18:48.703Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:18:48.703Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.63445.1766989128703 to /Users/al4ud1de/.claude.json
+2025-12-29T06:18:48.704Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:18:48.704Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.63445.1766989128704
+2025-12-29T06:18:48.704Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:18:48.704Z [DEBUG] Temp file written successfully, size: 202 bytes
+2025-12-29T06:18:48.704Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:18:48.704Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.63445.1766989128704 to /Users/al4ud1de/.claude.json
+2025-12-29T06:18:48.704Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:18:48.706Z [DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+2025-12-29T06:18:48.709Z [DEBUG] Loading skills from directories: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/al4ud1de/.claude/skills, project=[]
+2025-12-29T06:18:48.709Z [DEBUG] >>>>> getPluginSkills CALLED <<<<<
+2025-12-29T06:18:48.789Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (79.3ms): ps aux | grep -E "Visual Studio Code|Code Helper|Cursor Helper|Windsurf Helper|IntelliJ IDEA|PyCharm
+2025-12-29T06:18:48.790Z [DEBUG] installed_plugins.json doesn't exist, returning empty V2 object
+2025-12-29T06:18:48.799Z [DEBUG] Creating shell snapshot for zsh (/bin/zsh)
+2025-12-29T06:18:48.799Z [DEBUG] Looking for shell config file: /Users/al4ud1de/.zshrc
+2025-12-29T06:18:48.799Z [DEBUG] Snapshots directory: /Users/al4ud1de/.claude/shell-snapshots
+2025-12-29T06:18:48.800Z [DEBUG] Creating snapshot at: /Users/al4ud1de/.claude/shell-snapshots/snapshot-zsh-1766989128799-3swu9z.sh
+2025-12-29T06:18:48.800Z [DEBUG] Shell binary exists: true
+2025-12-29T06:18:48.800Z [DEBUG] Execution timeout: 10000ms
+2025-12-29T06:18:48.800Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude/todos/7953d31f-a218-4d49-adce-d309a593be83-agent-7953d31f-a218-4d49-adce-d309a593be83.json.tmp.63445.1766989128800
+2025-12-29T06:18:48.800Z [DEBUG] Temp file written successfully, size: 2 bytes
+2025-12-29T06:18:48.800Z [DEBUG] Renaming /Users/al4ud1de/.claude/todos/7953d31f-a218-4d49-adce-d309a593be83-agent-7953d31f-a218-4d49-adce-d309a593be83.json.tmp.63445.1766989128800 to /Users/al4ud1de/.claude/todos/7953d31f-a218-4d49-adce-d309a593be83-agent-7953d31f-a218-4d49-adce-d309a593be83.json
+2025-12-29T06:18:48.800Z [DEBUG] File /Users/al4ud1de/.claude/todos/7953d31f-a218-4d49-adce-d309a593be83-agent-7953d31f-a218-4d49-adce-d309a593be83.json written atomically
+2025-12-29T06:18:48.804Z [DEBUG] Total LSP servers loaded: 0
+2025-12-29T06:18:48.804Z [DEBUG] getPluginSkills: Processing 0 enabled plugins
+2025-12-29T06:18:48.804Z [DEBUG] Total plugin skills loaded: 0
+2025-12-29T06:18:48.804Z [DEBUG] Total plugin commands loaded: 0
+2025-12-29T06:18:48.804Z [DEBUG] Registered 0 hooks from 0 plugins
+2025-12-29T06:18:48.814Z [DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+2025-12-29T06:18:48.814Z [DEBUG] LSP manager initialized with 0 servers
+2025-12-29T06:18:48.814Z [DEBUG] Loaded 0 unique skills (managed: 0, user: 0, project: 0, duplicates removed: 0)
+2025-12-29T06:18:48.814Z [DEBUG] LSP server manager initialized successfully
+2025-12-29T06:18:48.814Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2025-12-29T06:18:48.815Z [DEBUG] Attempting to auto-install official marketplace
+2025-12-29T06:18:48.817Z [DEBUG] getSkills returning: 0 skill dir commands, 0 plugin skills
+2025-12-29T06:18:48.849Z [DEBUG] Git remote URL: null
+2025-12-29T06:18:48.849Z [DEBUG] No git remote URL found
+2025-12-29T06:18:48.849Z [DEBUG] Not in a GitHub repository, skipping path mapping update
+2025-12-29T06:18:48.850Z [DEBUG] Install: Starting installation process (force=false, target=undefined)
+2025-12-29T06:18:48.850Z [DEBUG] Install: Calling installLatest(force=true, target=undefined, forceReinstall=false)
+2025-12-29T06:18:48.913Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.63445.1766989128913
+2025-12-29T06:18:48.913Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:18:48.913Z [DEBUG] Temp file written successfully, size: 265 bytes
+2025-12-29T06:18:48.913Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:18:48.913Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.63445.1766989128913 to /Users/al4ud1de/.claude.json
+2025-12-29T06:18:48.913Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:18:48.913Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.63445.1766989128913
+2025-12-29T06:18:48.913Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:18:48.914Z [DEBUG] Temp file written successfully, size: 309 bytes
+2025-12-29T06:18:48.914Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:18:48.914Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.63445.1766989128913 to /Users/al4ud1de/.claude.json
+2025-12-29T06:18:48.915Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:18:48.915Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.63445.1766989128915
+2025-12-29T06:18:48.915Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:18:48.916Z [DEBUG] Temp file written successfully, size: 339 bytes
+2025-12-29T06:18:48.916Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:18:48.916Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.63445.1766989128915 to /Users/al4ud1de/.claude.json
+2025-12-29T06:18:48.916Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:18:48.916Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.63445.1766989128916
+2025-12-29T06:18:48.916Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:18:48.916Z [DEBUG] Temp file written successfully, size: 364 bytes
+2025-12-29T06:18:48.916Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:18:48.916Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.63445.1766989128916 to /Users/al4ud1de/.claude.json
+2025-12-29T06:18:48.916Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:18:49.050Z [DEBUG] Shell snapshot created successfully (977 bytes)
+2025-12-29T06:18:49.090Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.63445.1766989129090
+2025-12-29T06:18:49.090Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:18:49.090Z [DEBUG] Temp file written successfully, size: 52012 bytes
+2025-12-29T06:18:49.090Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:18:49.090Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.63445.1766989129090 to /Users/al4ud1de/.claude.json
+2025-12-29T06:18:49.090Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:18:49.228Z [DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/Users/al4ud1de/.claude/downloads/claude-2.0.67-darwin-arm64)
+2025-12-29T06:18:49.490Z [DEBUG] Checking for native installer update to version 2.0.76
+2025-12-29T06:18:49.492Z [DEBUG] Downloading native installer version 2.0.76
+2025-12-29T06:18:49.859Z [INFO] SSH not configured for GitHub, using HTTPS for anthropics/claude-plugins-official
+2025-12-29T06:18:49.999Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.63445.1766989129999
+2025-12-29T06:18:49.999Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:18:49.999Z [DEBUG] Temp file written successfully, size: 52094 bytes
+2025-12-29T06:18:49.999Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:18:49.999Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.63445.1766989129999 to /Users/al4ud1de/.claude.json
+2025-12-29T06:18:49.999Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:18:50.844Z [DEBUG] Added marketplace source: claude-plugins-official
+2025-12-29T06:18:50.844Z [DEBUG] Successfully auto-installed official marketplace
+2025-12-29T06:18:50.844Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.63445.1766989130844
+2025-12-29T06:18:50.845Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:18:50.845Z [DEBUG] Temp file written successfully, size: 52189 bytes
+2025-12-29T06:18:50.845Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:18:50.845Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.63445.1766989130844 to /Users/al4ud1de/.claude.json
+2025-12-29T06:18:50.845Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:18:55.473Z [DEBUG] CDN dark read succeeded for 2.0.76
+2025-12-29T06:18:59.112Z [DEBUG] Successfully updated to version 2.0.76
+2025-12-29T06:18:59.113Z [DEBUG] Writing to temp file: /Users/al4ud1de/.claude.json.tmp.63445.1766989139113
+2025-12-29T06:18:59.113Z [DEBUG] Preserving file permissions: 100600
+2025-12-29T06:18:59.113Z [DEBUG] Temp file written successfully, size: 52283 bytes
+2025-12-29T06:18:59.113Z [DEBUG] Applied original permissions to temp file
+2025-12-29T06:18:59.113Z [DEBUG] Renaming /Users/al4ud1de/.claude.json.tmp.63445.1766989139113 to /Users/al4ud1de/.claude.json
+2025-12-29T06:18:59.113Z [DEBUG] File /Users/al4ud1de/.claude.json written atomically
+2025-12-29T06:18:59.113Z [DEBUG] Native installer: Set installMethod to "native" and disabled legacy auto-updater for protection
+2025-12-29T06:18:59.113Z [DEBUG] Install: installLatest returned version=2.0.76, wasUpdated=true, lockFailed=false
+2025-12-29T06:18:59.114Z [DEBUG] Install: Setup launcher completed with 1 messages
+2025-12-29T06:18:59.114Z [DEBUG] Install: Setup message: Native installation exists but ~/.local/bin is not in your PATH. Run:
+
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc
+2025-12-29T06:18:59.114Z [DEBUG] Install: Cleaning up npm installations after successful install
+2025-12-29T06:18:59.631Z [DEBUG] Removed global npm installation of @anthropic-ai/claude-code
+2025-12-29T06:18:59.631Z [DEBUG] Cleaned up 1 npm installation(s)

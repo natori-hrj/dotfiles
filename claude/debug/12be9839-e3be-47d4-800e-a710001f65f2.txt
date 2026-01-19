@@ -1,0 +1,97 @@
+2026-01-10T08:25:57.984Z [DEBUG] [init] configureGlobalMTLS starting
+2026-01-10T08:25:57.984Z [DEBUG] [init] configureGlobalMTLS complete
+2026-01-10T08:25:57.984Z [DEBUG] [init] configureGlobalAgents starting
+2026-01-10T08:25:57.984Z [DEBUG] [init] configureGlobalAgents complete
+2026-01-10T08:25:57.989Z [DEBUG] Stats cache does not exist, returning empty cache
+2026-01-10T08:25:57.989Z [DEBUG] Stats cache empty, processing all historical data in background
+2026-01-10T08:25:57.993Z [DEBUG] Loading skills from: managed=/Library/Application Support/ClaudeCode/.claude/skills, user=/Users/natori/.claude/skills, project=[]
+2026-01-10T08:25:58.061Z [DEBUG] installed_plugins.json doesn't exist, returning empty V2 object
+2026-01-10T08:25:58.063Z [DEBUG] Writing to temp file: /Users/natori/.claude/todos/12be9839-e3be-47d4-800e-a710001f65f2-agent-12be9839-e3be-47d4-800e-a710001f65f2.json.tmp.13652.1768033558063
+2026-01-10T08:25:58.063Z [DEBUG] Temp file written successfully, size: 2 bytes
+2026-01-10T08:25:58.063Z [DEBUG] Renaming /Users/natori/.claude/todos/12be9839-e3be-47d4-800e-a710001f65f2-agent-12be9839-e3be-47d4-800e-a710001f65f2.json.tmp.13652.1768033558063 to /Users/natori/.claude/todos/12be9839-e3be-47d4-800e-a710001f65f2-agent-12be9839-e3be-47d4-800e-a710001f65f2.json
+2026-01-10T08:25:58.063Z [DEBUG] File /Users/natori/.claude/todos/12be9839-e3be-47d4-800e-a710001f65f2-agent-12be9839-e3be-47d4-800e-a710001f65f2.json written atomically
+2026-01-10T08:25:58.070Z [DEBUG] [render] initYoga starting
+2026-01-10T08:25:58.071Z [DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+2026-01-10T08:25:58.072Z [DEBUG] getPluginSkills: Processing 0 enabled plugins
+2026-01-10T08:25:58.072Z [DEBUG] Total plugin skills loaded: 0
+2026-01-10T08:25:58.072Z [DEBUG] Total plugin commands loaded: 0
+2026-01-10T08:25:58.072Z [DEBUG] Registered 0 hooks from 0 plugins
+2026-01-10T08:25:58.073Z [DEBUG] Loaded 0 unique skills (managed: 0, user: 0, project: 0, legacy commands: 0)
+2026-01-10T08:25:58.074Z [DEBUG] getSkills returning: 0 skill dir commands, 0 plugin skills, 0 bundled skills
+2026-01-10T08:25:58.078Z [DEBUG] Stats cache saved successfully (lastComputedDate: 2026-01-09)
+2026-01-10T08:25:58.078Z [DEBUG] Stats cache updated with 1 sessions
+2026-01-10T08:25:58.080Z [DEBUG] [render] initYoga complete
+2026-01-10T08:25:58.082Z [DEBUG] Writing to temp file: /Users/natori/.claude.json.tmp.13652.1768033558082
+2026-01-10T08:25:58.082Z [DEBUG] Preserving file permissions: 100600
+2026-01-10T08:25:58.082Z [DEBUG] Temp file written successfully, size: 5014 bytes
+2026-01-10T08:25:58.082Z [DEBUG] Applied original permissions to temp file
+2026-01-10T08:25:58.082Z [DEBUG] Renaming /Users/natori/.claude.json.tmp.13652.1768033558082 to /Users/natori/.claude.json
+2026-01-10T08:25:58.082Z [DEBUG] File /Users/natori/.claude.json written atomically
+2026-01-10T08:25:58.107Z [DEBUG] Creating shell snapshot for zsh (/bin/zsh)
+2026-01-10T08:25:58.107Z [DEBUG] Looking for shell config file: /Users/natori/.zshrc
+2026-01-10T08:25:58.107Z [DEBUG] Snapshots directory: /Users/natori/.claude/shell-snapshots
+2026-01-10T08:25:58.107Z [DEBUG] Creating snapshot at: /Users/natori/.claude/shell-snapshots/snapshot-zsh-1768033558107-9mf9am.sh
+2026-01-10T08:25:58.107Z [DEBUG] Shell binary exists: true
+2026-01-10T08:25:58.107Z [DEBUG] Execution timeout: 10000ms
+2026-01-10T08:25:58.108Z [ERROR] Failed to refresh marketplace claude-plugins-official: Failed to clone marketplace repository: fatal: could not create leading directories of '/Users/al4ud1de/.claude/plugins/marketplaces/claude-plugins-official': Permission denied
+2026-01-10T08:25:58.108Z [WARN] Plugin autoupdate: failed to refresh marketplace claude-plugins-official: Failed to refresh marketplace 'claude-plugins-official': Failed to clone marketplace repository: fatal: could not create leading directories of '/Users/al4ud1de/.claude/plugins/marketplaces/claude-plugins-official': Permission denied
+2026-01-10T08:25:58.108Z [DEBUG] Plugin autoupdate: checking installed plugins
+2026-01-10T08:25:58.108Z [DEBUG] Install: Starting installation process (force=false, target=undefined)
+2026-01-10T08:25:58.108Z [DEBUG] Install: Calling installLatest(channelOrVersion=latest, force=true, forceReinstall=false)
+2026-01-10T08:25:58.177Z [DEBUG] Writing to temp file: /Users/natori/.claude.json.tmp.13652.1768033558177
+2026-01-10T08:25:58.177Z [DEBUG] Preserving file permissions: 100600
+2026-01-10T08:25:58.177Z [DEBUG] Temp file written successfully, size: 5014 bytes
+2026-01-10T08:25:58.177Z [DEBUG] Applied original permissions to temp file
+2026-01-10T08:25:58.177Z [DEBUG] Renaming /Users/natori/.claude.json.tmp.13652.1768033558177 to /Users/natori/.claude.json
+2026-01-10T08:25:58.177Z [DEBUG] File /Users/natori/.claude.json written atomically
+2026-01-10T08:25:58.322Z [DEBUG] Writing to temp file: /Users/natori/.claude.json.tmp.13652.1768033558322
+2026-01-10T08:25:58.322Z [DEBUG] Preserving file permissions: 100600
+2026-01-10T08:25:58.322Z [DEBUG] Temp file written successfully, size: 5154 bytes
+2026-01-10T08:25:58.322Z [DEBUG] Applied original permissions to temp file
+2026-01-10T08:25:58.322Z [DEBUG] Renaming /Users/natori/.claude.json.tmp.13652.1768033558322 to /Users/natori/.claude.json
+2026-01-10T08:25:58.322Z [DEBUG] File /Users/natori/.claude.json written atomically
+2026-01-10T08:25:58.322Z [DEBUG] Writing to temp file: /Users/natori/.claude.json.tmp.13652.1768033558322
+2026-01-10T08:25:58.322Z [DEBUG] Preserving file permissions: 100600
+2026-01-10T08:25:58.322Z [DEBUG] Temp file written successfully, size: 5182 bytes
+2026-01-10T08:25:58.322Z [DEBUG] Applied original permissions to temp file
+2026-01-10T08:25:58.322Z [DEBUG] Renaming /Users/natori/.claude.json.tmp.13652.1768033558322 to /Users/natori/.claude.json
+2026-01-10T08:25:58.323Z [DEBUG] File /Users/natori/.claude.json written atomically
+2026-01-10T08:25:58.323Z [DEBUG] Writing to temp file: /Users/natori/.claude.json.tmp.13652.1768033558323
+2026-01-10T08:25:58.323Z [DEBUG] Preserving file permissions: 100600
+2026-01-10T08:25:58.323Z [DEBUG] Temp file written successfully, size: 5221 bytes
+2026-01-10T08:25:58.323Z [DEBUG] Applied original permissions to temp file
+2026-01-10T08:25:58.323Z [DEBUG] Renaming /Users/natori/.claude.json.tmp.13652.1768033558323 to /Users/natori/.claude.json
+2026-01-10T08:25:58.323Z [DEBUG] File /Users/natori/.claude.json written atomically
+2026-01-10T08:25:58.324Z [DEBUG] Writing to temp file: /Users/natori/.claude.json.tmp.13652.1768033558324
+2026-01-10T08:25:58.324Z [DEBUG] Preserving file permissions: 100600
+2026-01-10T08:25:58.324Z [DEBUG] Temp file written successfully, size: 5259 bytes
+2026-01-10T08:25:58.324Z [DEBUG] Applied original permissions to temp file
+2026-01-10T08:25:58.324Z [DEBUG] Renaming /Users/natori/.claude.json.tmp.13652.1768033558324 to /Users/natori/.claude.json
+2026-01-10T08:25:58.324Z [DEBUG] File /Users/natori/.claude.json written atomically
+2026-01-10T08:25:58.324Z [DEBUG] Writing to temp file: /Users/natori/.claude.json.tmp.13652.1768033558324
+2026-01-10T08:25:58.324Z [DEBUG] Preserving file permissions: 100600
+2026-01-10T08:25:58.324Z [DEBUG] Temp file written successfully, size: 5298 bytes
+2026-01-10T08:25:58.324Z [DEBUG] Applied original permissions to temp file
+2026-01-10T08:25:58.324Z [DEBUG] Renaming /Users/natori/.claude.json.tmp.13652.1768033558324 to /Users/natori/.claude.json
+2026-01-10T08:25:58.324Z [DEBUG] File /Users/natori/.claude.json written atomically
+2026-01-10T08:25:58.325Z [DEBUG] Writing to temp file: /Users/natori/.claude.json.tmp.13652.1768033558325
+2026-01-10T08:25:58.325Z [DEBUG] Preserving file permissions: 100600
+2026-01-10T08:25:58.325Z [DEBUG] Temp file written successfully, size: 5297 bytes
+2026-01-10T08:25:58.325Z [DEBUG] Applied original permissions to temp file
+2026-01-10T08:25:58.325Z [DEBUG] Renaming /Users/natori/.claude.json.tmp.13652.1768033558325 to /Users/natori/.claude.json
+2026-01-10T08:25:58.325Z [DEBUG] File /Users/natori/.claude.json written atomically
+2026-01-10T08:25:58.325Z [DEBUG] Shell snapshot created successfully (2853 bytes)
+2026-01-10T08:25:58.669Z [DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=/Users/natori/dotfiles/claude/downloads/claude-2.1.3-darwin-arm64)
+2026-01-10T08:25:58.837Z [DEBUG] Checking for native installer update to version 2.1.3
+2026-01-10T08:25:58.839Z [DEBUG] Downloading native installer version 2.1.3
+2026-01-10T08:26:04.245Z [DEBUG] Atomically installed binary to /Users/natori/.local/share/claude/versions/2.1.3
+2026-01-10T08:26:04.246Z [DEBUG] Could not remove empty directory at /Users/natori/.local/bin/claude: Error: ENOENT: no such file or directory, stat '/Users/natori/.local/bin/claude'
+2026-01-10T08:26:04.246Z [DEBUG] Created directory /Users/natori/.local/bin for symlink
+2026-01-10T08:26:04.246Z [DEBUG] Atomically updated symlink /Users/natori/.local/bin/claude -> /Users/natori/.local/share/claude/versions/2.1.3
+2026-01-10T08:26:04.246Z [DEBUG] Successfully updated to version 2.1.3
+2026-01-10T08:26:04.246Z [DEBUG] Install: installLatest returned version=2.1.3, wasUpdated=true, lockFailed=false
+2026-01-10T08:26:04.248Z [DEBUG] Install: Setup launcher completed with 0 messages
+2026-01-10T08:26:04.248Z [DEBUG] Install: Cleaning up npm installations after successful install
+2026-01-10T08:26:04.773Z [DEBUG] Removed global npm installation of @anthropic-ai/claude-code
+2026-01-10T08:26:04.773Z [DEBUG] Cleaned up 1 npm installation(s)
+2026-01-10T08:26:04.773Z [DEBUG] Install: Shell PATH already configured

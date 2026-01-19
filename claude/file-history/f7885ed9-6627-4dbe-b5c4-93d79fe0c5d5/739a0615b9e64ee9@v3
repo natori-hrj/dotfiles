@@ -1,0 +1,43 @@
+<script lang="ts">
+  import { onMount } from 'svelte';
+  import { Moon, Sun } from 'lucide-svelte';
+
+  let isDark = $state(false);
+
+  onMount(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  });
+
+  const toggleTheme = () => {
+    isDark = !isDark;
+
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  };
+</script>
+
+<button
+  onclick={toggleTheme}
+  class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all duration-200 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300"
+  aria-label="テーマ切り替え"
+>
+  {#if isDark}
+    <Moon size={20} />
+  {:else}
+    <Sun size={20} />
+  {/if}
+</button>

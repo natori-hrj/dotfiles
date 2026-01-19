@@ -1,0 +1,83 @@
+# ダークモード切り替えボタンの修正プラン
+
+## 問題の診断
+
+コードベースを分析した結果、以下の問題を特定しました:
+
+### 1. **重大なCSSタイポ** (src/routes/layout.css:26)
+```css
+transition: backgroung-color 0.3s, color 0.3s;
+```
+`backgroung-color` は `background-color` の誤字です。このため、背景色のトランジションが動作していません。
+
+### 2. **Tailwind CSS v4のダークモード設定不足**
+現在のプロジェクトはTailwind CSS v4 (4.1.17)を使用していますが、`layout.css`にダークモードのセレクター設定が明示的に定義されていません。Tailwind v4では、`@theme`ブロックまたは`@variant`でダークモードを明示的に設定する必要があります。
+
+### 3. **コメントのタイポ** (src/routes/layout.css:29)
+```css
+/* ダークモード適当時*/
+```
+`適当時` は `適用時` の誤字です（機能には影響しませんが、修正すべきです）。
+
+## 実装計画
+
+### ステップ1: CSSタイポの修正
+**ファイル:** `src/routes/layout.css`
+
+修正箇所:
+- 26行目: `backgroung-color` → `background-color`
+- 29行目: `適当時` → `適用時`
+
+### ステップ2: Tailwind CSS v4のダークモード設定を追加
+**ファイル:** `src/routes/layout.css`
+
+Tailwind CSS v4では、ダークモードのセレクター戦略を明示的に設定する必要があります。
+`@import 'tailwindcss';`の直後に、以下のカスタムバリアントを追加:
+
+```css
+@custom-variant dark (&:where(.dark, .dark *));
+```
+
+これにより、Tailwind CSSの`dark:`修飾子が`.dark`クラスで動作するようになります。
+
+**参考:** Tailwind CSS v4では、v3の`tailwind.config.js`の`darkMode`設定が廃止され、CSS内で`@custom-variant`を使用する方式に変更されました。
+
+### ステップ3: 動作確認
+修正後、以下を確認:
+1. ボタンをクリックしてダークモード/ライトモードが切り替わるか
+2. 背景色と文字色がスムーズにトランジションするか
+3. Tailwindの`dark:`クラス（`dark:bg-gray-800`など）が正しく適用されるか
+4. ページをリロードしても選択したテーマが保持されるか（localStorage）
+5. OSのダークモード設定が反映されるか（初回訪問時）
+
+## 影響を受けるファイル
+
+- **src/routes/layout.css** - CSSタイポの修正とTailwind v4設定の追加
+
+## 検証方法
+
+1. **開発サーバーを起動:**
+   ```bash
+   npm run dev
+   ```
+
+2. **ブラウザでテスト:**
+   - テーマ切り替えボタン（🌙/☀️）をクリック
+   - ダークモードとライトモードが切り替わることを確認
+   - トランジションがスムーズに動作することを確認
+   - ブラウザの開発者ツールで`.dark`クラスが`<body>`に追加/削除されることを確認
+
+3. **永続性のテスト:**
+   - テーマを切り替えた後、ページをリロード
+   - 選択したテーマが保持されていることを確認
+
+4. **OSの設定テスト:**
+   - localStorageをクリア（開発者ツールのApplication > Storage > Local Storage）
+   - OSのダークモード設定を変更
+   - ページをリロードしてOSの設定が反映されることを確認
+
+## 参考資料
+
+- [Dark mode - Core concepts - Tailwind CSS](https://tailwindcss.com/docs/dark-mode)
+- [How to Fix Dark Classes Not Applying in Tailwind CSS v4](https://www.sujalvanjare.com/blog/fix-dark-class-not-applying-tailwind-css-v4)
+- [Dark mode using Tailwindcss v4.0 - DEV Community](https://dev.to/tene/dark-mode-using-tailwindcss-v40-2lc6)

@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Claude Code - Temporary/Cache files
+claude/debug/
+claude/file-history/
+claude/projects/
+claude/history.jsonl
+claude/shell-snapshots/
+claude/stats-cache.json
+claude/statsig/
+claude/todos/
+claude/plugins/marketplaces/
+
+# Neovim - 既に設定されているはずだが念のため
+nvim/lazy-lock.json

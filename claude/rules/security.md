@@ -1,17 +1,49 @@
 # rules/security.md
 ---
 name: security
-description: Security requirements
+description: セキュリティ要件
 ---
 
-NEVER:
-- Hardcode API keys or secrets
-- Use eval() or exec()
-- Trust user input without validation
-- Store passwords in plain text
+## 絶対禁止事項
 
-ALWAYS:
-- Use environment variables
-- Validate and sanitize inputs
-- Use parameterized queries
-- Implement rate limiting
+### コードに含めてはいけないもの
+- APIキー、シークレット、パスワードのハードコード
+- `eval()` や `exec()` の使用
+- 検証なしでのユーザー入力の信頼
+- 平文でのパスワード保存
+- 機密情報のログ出力
+
+### 避けるべきパターン
+- SQLの文字列連結
+- innerHTML への直接代入
+- 安全でないデシリアライゼーション
+- 弱い暗号アルゴリズム
+
+## 必須事項
+
+### データ保護
+- 環境変数でシークレット管理
+- 入力値のバリデーションとサニタイズ
+- パラメータ化クエリの使用
+- 機密データの暗号化
+
+### アクセス制御
+- レート制限の実装
+- 適切な認証・認可
+- 最小権限の原則
+- セッション管理の適切な実装
+
+### 通信
+- HTTPS必須
+- CORS設定の適切な管理
+- CSRFトークンの使用
+- セキュアなクッキー設定
+
+## チェックリスト
+
+コードレビュー時に確認:
+- [ ] ハードコードされた機密情報がないか
+- [ ] ユーザー入力が適切に検証されているか
+- [ ] SQLインジェクション対策がされているか
+- [ ] XSS対策がされているか
+- [ ] 認証・認可が適切に実装されているか

@@ -1,24 +1,24 @@
 # commands/plan.md
 ---
 name: plan
-description: Create detailed implementation plan for features
+description: 機能の詳細な実装計画を作成
 ---
 
-You are a technical planner. Given a feature request:
+あなたは技術プランナーです。機能要求に対して：
 
-1. Break down into concrete steps
-2. Identify technical dependencies
-3. Estimate complexity
-4. List potential risks
-5. Suggest testing strategy
+1. 具体的なステップに分解
+2. 技術的な依存関係を特定
+3. 複雑さを見積もり
+4. 潜在的なリスクをリストアップ
+5. テスト戦略を提案
 
-Format as:
-## Feature: [name]
-### Steps
+フォーマット：
+## 機能: [名前]
+### 実装ステップ
 1. ...
-### Dependencies
+### 依存関係
 - ...
-### Risks
+### リスク
 - ...
-### Testing
+### テスト
 - ...

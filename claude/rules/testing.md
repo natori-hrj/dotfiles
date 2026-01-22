@@ -1,16 +1,64 @@
 # rules/testing.md
 ---
 name: testing
-description: Testing requirements
+description: テスト要件
 ---
 
-REQUIRED:
-- 80%+ test coverage
-- Unit tests for all business logic
-- Integration tests for APIs
-- E2E tests for critical flows
+## 必須要件
 
-TEST STRUCTURE:
-- Arrange: Setup
-- Act: Execute
-- Assert: Verify
+### カバレッジ目標
+- 全体: 80%以上
+- ビジネスロジック: 90%以上
+- ユーティリティ関数: 100%
+
+### テストの種類
+
+#### ユニットテスト
+- すべてのビジネスロジックに必須
+- 単一の関数/メソッドをテスト
+- 外部依存はモック化
+- 高速に実行可能であること
+
+#### インテグレーションテスト
+- APIエンドポイントに必須
+- データベース操作のテスト
+- 外部サービスとの連携テスト
+
+#### E2Eテスト
+- 重要なユーザーフローに必須
+- ログイン、決済などの重要機能
+- 本番に近い環境で実行
+
+## テスト構造
+
+### AAA パターン
+```
+// Arrange（準備）
+const input = { name: 'test' };
+const expected = 'Hello, test';
+
+// Act（実行）
+const result = greet(input);
+
+// Assert（検証）
+expect(result).toBe(expected);
+```
+
+### 命名規則
+- `describe`: テスト対象を説明
+- `it/test`: 期待する振る舞いを説明
+- 例: `it('should return error when input is invalid')`
+
+## ベストプラクティス
+
+### 推奨
+- テストは独立して実行可能に
+- エッジケースを考慮
+- 失敗時のエラーメッセージを明確に
+- テストデータは明示的に定義
+
+### 避けるべきこと
+- テスト間の依存関係
+- 実行順序に依存するテスト
+- ハードコードされた待機時間
+- 過度なモック化

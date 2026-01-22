@@ -1,0 +1,54 @@
+{
+  "permissionRules": [
+    {
+      "description": "ファイル作成・編集は必ず確認",
+      "matcher": "tool == 'Write' || tool == 'Edit' || tool == 'MultiEdit'",
+      "action": "ask"
+    },
+    {
+      "description": "Gitコマンドは必ず確認",
+      "matcher": "tool == 'Bash' && tool_input.command matches 'git'",
+      "action": "ask"
+    },
+    {
+      "description": "package.json変更は必ず確認",
+      "matcher": "tool_input.file_path matches 'package\\.json'",
+      "action": "ask"
+    },
+    {
+      "description": "環境変数ファイル変更は必ず確認",
+      "matcher": "tool_input.file_path matches '\\.(env|env\\..*)'",
+      "action": "ask"
+    },
+    {
+      "description": "設定ファイル変更は必ず確認",
+      "matcher": "tool_input.file_path matches '(tsconfig\\.json|next\\.config\\..*|vite\\.config\\..*|\\.eslintrc.*|requirements\\.txt|pyproject\\.toml)'",
+      "action": "ask"
+    }
+  ],
+  
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "tool == 'Bash' && tool_input.command matches 'git (commit|push|merge|rebase)'",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "#!/bin/bash\necho '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━' >&2\necho '🚫 Git操作はブロックされています' >&2\necho '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━' >&2\necho '' >&2\necho '安全のため、Git操作は手動で実行してください' >&2\necho '' >&2\necho 'コマンド:' >&2\necho \"  $(echo \"$@\" | jq -r '.tool_input.command // \"\"')\" >&2\necho '' >&2\necho 'ターミナルで手動実行してください' >&2\necho '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━' >&2\nexit 1"
+          }
+        ],
+        "description": "Git commit/push/merge/rebaseをブロック"
+      },
+      {
+        "matcher": "tool == 'Bash' && tool_input.command matches '(rm|rmdir) .*-rf'",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "#!/bin/bash\necho '⚠️  危険なコマンド: rm -rf' >&2\necho \"コマンド: $(echo \"$@\" | jq -r '.tool_input.command // \"\"')\" >&2\necho '本当に実行しますか？必ず内容を確認してください' >&2\nexit 1"
+          }
+        ],
+        "description": "危険な削除コマンドをブロック"
+      }
+    ]
+  }
+}

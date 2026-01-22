@@ -24,3 +24,22 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.autoindent = true
   end,
 })
+
+-- ターミナルモードの設定
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+    vim.opt_local.signcolumn = "no"
+    vim.opt_local.foldcolumn = "0"
+    vim.opt_local.cursorline = false
+    vim.opt_local.cursorcolumn = false
+  end,
+})
+
+-- ターミナルを開いたら自動でインサートモードに
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "*",
+  command = "startinsert",
+})

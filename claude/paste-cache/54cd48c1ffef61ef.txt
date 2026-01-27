@@ -1,0 +1,416 @@
+# Sakana AI Software Engineer - Technical Assessment
+
+**Position:** Software Engineer (Applied Team)  
+**Company:** Sakana AI  
+**Assessment Type:** Technical Challenge  
+**Duration:** ~1 month (recommended: 1 week for engineer)  
+**Date Received:** 2026年1月21日
+
+---
+
+## 📋 Overview
+
+### Project Summary
+
+Local LLMを活用したコードレビューWebアプリケーションの開発
+
+- **Target User:** 見込み顧客（デモアプリとして想定）
+- **Core Functionality:** ユーザーが入力したコードに対してレビューコメントを返す
+- **Estimated Development Time:** エンジニア1週間程度
+- **Submission Deadline:** 1ヶ月を目処
+
+---
+
+## ✅ Required Features (必須要件)
+
+### 1. User Interface
+
+#### Basic Input/Output
+- [ ] コード入力エリア
+  - シンタックスハイライト推奨（必須ではない）
+- [ ] レビュー実行ボタン
+- [ ] レビュー結果表示エリア
+- [ ] ローディング表示
+  - レビュー生成中の表示
+  - 生成中の操作制御（無効化など）
+
+#### Chat History
+- [ ] Chat履歴の表示機能
+- [ ] **データベースへの保存必須**
+  - 選択肢: SQLite / PostgreSQL / MySQL / Redis
+
+---
+
+### 2. LLM Integration
+
+#### On-device LLM (必須)
+- [ ] **TAIDを用いたオンデバイスLLM対応**
+  - Model: TinySwallow-1.5B
+  - ブラウザ上で動作するLLM
+
+#### Network LLM (必須)
+- [ ] **OpenAI API対応**
+  - 推奨モデル: GPT-4o等
+
+#### Error Handling
+- [ ] ネットワークエラー対応
+- [ ] APIキーエラー対応
+- [ ] レートリミットエラー対応
+- [ ] APIキーの安全な管理
+
+---
+
+### 3. Technical Stack
+
+#### Frontend
+- [ ] 選択肢: React / Vue.js / Next.js 等
+- [ ] モダンなJavaScriptフレームワーク
+
+#### Backend (必須: Python)
+- [ ] **Pythonを使用すること（必須）**
+- [ ] 推奨: FastAPI / Flask
+
+#### Database
+- [ ] 選択肢: SQLite / PostgreSQL / MySQL / Redis
+- [ ] Chat履歴の永続化
+
+---
+
+### 4. Deployment
+
+#### Cloud Deployment (必須)
+- [ ] **クラウドへのデプロイ必須**
+- [ ] デプロイURLの提供（評価者が試せる状態）
+
+#### Infrastructure as Code
+- [ ] Terraform等のIaCでのプロビジョニング管理
+- [ ] **現状、Sakana AIではGCPの利用ケースが多い**
+
+---
+
+### 5. Authentication & Security
+
+- [ ] ユーザー認証機能の実装
+- [ ] ユーザーごとにChat履歴が独立
+- [ ] 異常系の考慮
+
+---
+
+## 🌟 Optional Features (オプション要件)
+
+### 最低2つ以上の実装を推奨
+
+#### Option 1: Streaming Response
+- [ ] ストリーミング表示
+  - レビューコメントをリアルタイムで逐次表示
+
+#### Option 2: Cloud Deployment with IaC
+- [ ] クラウドデプロイ（GCP推奨）
+- [ ] TerraformなどのIaCでプロビジョニング管理
+
+#### Option 3: Advanced Code Editor
+- [ ] 高機能なコードエディタ
+  - 推奨: Monaco Editor / CodeMirror
+  - シンタックスハイライト
+  - 行番号表示
+  - その他エディタ機能
+
+#### Option 4: Customizable Review
+- [ ] レビューのカスタマイズ機能
+  - 詳細度の調整（詳細 / 簡潔）
+  - 厳しさの調整（厳しめ / 優しめ）
+
+#### Option 5: Code Diff & Apply
+- [ ] レビュー前後の差分表示
+- [ ] 修正の適用機能
+
+#### Option 6: Other Creative Ideas
+- [ ] その他、創意工夫した機能
+
+---
+
+## 📝 Deliverables (提出物)
+
+### 1. Source Code
+
+#### GitHub Repository
+- [ ] **Privateリポジトリ**（必須）
+  - または zip形式での提出
+- [ ] **絶対に public で公開しない**（重要）
+  - NDA違反となる
+
+#### Code Quality
+- [ ] 読みやすいコード
+- [ ] 適切なコメント
+- [ ] コーディング規約の遵守
+
+---
+
+### 2. Google Doc Report (超重要)
+
+#### Required Sections (必須項目)
+
+##### A. LLM Prompt Engineering
+- [ ] **LLMプロンプトの工夫を解説**
+  - コードベースでの説明
+  - なぜそのプロンプトにしたか
+  - 工夫したポイント
+
+##### B. Architecture Decision
+- [ ] **Architecture選択の根拠**
+  - なぜその技術スタックを選んだか
+  - 図表の使用可（推奨）
+
+##### C. Omitted Features
+- [ ] **省略した部分の説明と実装案**
+  - 時間の都合で省略した機能
+  - 実装するならどうするか
+
+##### D. Deployment URL
+- [ ] **デプロイURL**
+  - 評価者が実際に試せる状態
+
+##### E. Scalability Considerations
+- [ ] **スケールへの考察**
+  - 従業員数千人の企業での利用を想定
+  - どのようにスケールさせるか
+
+##### F. Security for Financial Institutions
+- [ ] **金融機関レベルのセキュリティ対応**
+  - どのような対策を取るか
+
+##### G. Team Development
+- [ ] **チーム開発の工夫**
+  - コードの形で表現
+  - レビュープロセス
+  - Git戦略
+  - CI/CD
+
+---
+
+#### Optional Sections (推奨項目)
+
+##### Test & Quality
+- [ ] テストコードの実装
+- [ ] 品質管理の戦略
+
+##### Monitoring & Logging
+- [ ] 監視項目の設計
+- [ ] ログ設計
+- [ ] アラート設計
+
+##### LLM Deployment Strategy
+- [ ] 新しいLLMを安全にデプロイする戦略
+
+##### Other Appeals
+- [ ] その他のアピールポイント
+
+---
+
+### Report Target Audience
+
+**想定読者:** 防衛省や金融機関などの大企業の顧客
+
+- 説得力のある説明
+- 具体的な実装案
+- セキュリティへの配慮
+- スケーラビリティの考慮
+
+---
+
+## 🎯 Evaluation Criteria (評価軸)
+
+### 1. Technical Depth
+- [ ] 深い思考と問題解決能力
+- [ ] 技術的な理解の深さ
+
+### 2. Decision Making
+- [ ] 曖昧な指示に対する適切な判断
+- [ ] 合理的な設計判断
+
+### 3. Communication
+- [ ] 説得力のある説明能力
+- [ ] ドキュメンテーション能力
+
+### 4. Code Quality
+- [ ] ハイレベルなコーディング能力
+- [ ] 保守性の高いコード
+
+---
+
+## 📚 Reference Materials (参考資料)
+
+### Blog Posts
+- [新手法「TAID」を用いた小規模日本語言語モデル「TinySwallow-1.5B」の公開](https://sakana.ai/tinyswallow/)
+
+### Research Paper
+- [TAID: Temporally Adaptive Interpolated Distillation](https://arxiv.org/abs/xxxx)
+
+### GitHub Repository
+- [SakanaAI/TAID](https://github.com/SakanaAI/TAID)
+
+### Web Demo
+- [TinySwallow Web Demo](https://pub.sakana.ai/tinyswallow/)
+
+### Demo Source Code
+- [TinySwallow-ChatUI](https://github.com/SakanaAI/TinySwallow-ChatUI)
+
+---
+
+## ⚠️ Important Notes (重要事項)
+
+### Security & NDA
+
+1. **GitHub Repository**
+   - ⚠️ **Privateリポジトリ必須**
+   - ⚠️ **絶対にpublicで公開しない**
+   - 提出時に評価者をCollaboratorとして招待
+
+2. **Confidentiality**
+   - NDA署名済み
+   - 課題内容の外部共有禁止
+   - 秘密情報の管理徹底
+
+3. **API Keys**
+   - `.gitignore`で秘密情報を除外
+   - 環境変数で管理
+   - Secret Manager等の活用
+
+---
+
+### Submission Process
+
+1. **GitHub Repository準備**
+   - Privateリポジトリ作成
+   - README.md完成
+   - デプロイURL記載
+
+2. **Google Doc完成**
+   - 全セクション執筆完了
+   - 図表追加
+   - 誤字脱字チェック
+
+3. **提出メール送信**
+   ```
+   件名: 技術課題提出 - [氏名]
+   
+   本文:
+   - GitHubリポジトリURL
+   - 招待するGitHubユーザー名を確認
+   - Google DocレポートURL
+   - デプロイURL
+   ```
+
+4. **Collaborator招待**
+   - 評価者のGitHubアカウントを招待
+   - Read権限を付与
+
+---
+
+## 💡 Development Tips
+
+### Recommended Approach
+
+1. **MVP (Minimum Viable Product) First**
+   - 必須機能を先に実装
+   - 動くものを早く作る
+   - オプション機能は後回し
+
+2. **Incremental Development**
+   - 小さく作って確認
+   - 段階的に機能追加
+   - 頻繁なテスト
+
+3. **Documentation as You Go**
+   - 実装しながらメモ
+   - 設計判断の記録
+   - レポート執筆の準備
+
+4. **Time Management**
+   - 完璧を目指さない
+   - 時間配分を意識
+   - バッファを確保
+
+---
+
+### Common Pitfalls (よくある失敗)
+
+❌ **避けるべきこと:**
+
+1. 完璧主義で時間切れ
+2. オプション機能に時間を使いすぎ
+3. レポート執筆を最後に回す
+4. デプロイを後回しにして失敗
+5. 秘密情報のコミット
+6. publicリポジトリでの公開
+
+✅ **推奨事項:**
+
+1. 必須機能を確実に完成
+2. 早めのデプロイとテスト
+3. レポートを並行して執筆
+4. .gitignoreの徹底
+5. Privateリポジトリの確認
+6. 定期的なバックアップ
+
+---
+
+## 📊 Success Criteria (成功基準)
+
+### Minimum Requirements (最低限)
+- [ ] 必須機能が全て動作
+- [ ] デプロイURL提供
+- [ ] Google Docレポート完成
+- [ ] オプション機能2つ以上
+
+### Target Goals (目標)
+- [ ] 高品質なコード
+- [ ] 充実したドキュメント
+- [ ] スケーラビリティへの配慮
+- [ ] セキュリティ対策の実装
+
+### Stretch Goals (理想)
+- [ ] テストコード実装
+- [ ] CI/CD構築
+- [ ] 監視・ログ設計
+- [ ] 創意工夫した機能
+
+---
+
+## 🎯 Next Steps
+
+1. **Preparation (準備)**
+   - [ ] 技術調査（TinySwallow, OpenAI API, GCP）
+   - [ ] アーキテクチャ設計
+   - [ ] データベース設計
+
+2. **Development (開発)**
+   - [ ] GitHubリポジトリ作成
+   - [ ] バックエンド実装
+   - [ ] フロントエンド実装
+   - [ ] LLM統合
+
+3. **Deployment (デプロイ)**
+   - [ ] GCP環境構築
+   - [ ] Terraform実装
+   - [ ] デプロイとテスト
+
+4. **Documentation (ドキュメント)**
+   - [ ] Google Docレポート執筆
+   - [ ] README.md作成
+   - [ ] コメント追加
+
+5. **Submission (提出)**
+   - [ ] 最終チェック
+   - [ ] 提出メール送信
+   - [ ] Collaborator招待
+
+---
+
+**Good luck! 頑張ってください！** 🚀
+
+---
+
+**Document Version:** 1.0  
+**Created:** 2026年1月22日  
+**Created by:** 鼻戸 龍治

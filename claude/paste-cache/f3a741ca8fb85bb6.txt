@@ -1,0 +1,212 @@
+ ruff check backend/
+  shell: /usr/bin/bash -e {0}
+  env:
+    PYTHON_VERSION: 3.11
+    NODE_VERSION: 20
+    pythonLocation: /opt/hostedtoolcache/Python/3.11.14/x64
+    PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.14/x64/lib/pkgconfig
+    Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.14/x64
+    Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.14/x64
+    Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.14/x64
+    LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.14/x64/lib
+W291 Trailing whitespace
+ --> backend/alembic/versions/488077f4cdad_initial_models.py:4:9
+  |
+3 | Revision ID: 488077f4cdad
+4 | Revises: 
+  |         ^
+5 | Create Date: 2026-01-25 13:25:35.425512
+  |
+help: Remove trailing whitespace
+
+UP035 [*] Import from `collections.abc` instead: `Sequence`
+  --> backend/alembic/versions/488077f4cdad_initial_models.py:8:1
+   |
+ 7 | """
+ 8 | from typing import Sequence, Union
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 9 |
+10 | from alembic import op
+   |
+help: Import from `collections.abc`
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> backend/alembic/versions/488077f4cdad_initial_models.py:8:1
+   |
+ 7 |   """
+ 8 | / from typing import Sequence, Union
+ 9 | |
+10 | | from alembic import op
+11 | | import sqlalchemy as sa
+   | |_______________________^
+   |
+help: Organize imports
+
+UP007 [*] Use `X | Y` for type annotations
+  --> backend/alembic/versions/488077f4cdad_initial_models.py:16:16
+   |
+14 | # revision identifiers, used by Alembic.
+15 | revision: str = '488077f4cdad'
+16 | down_revision: Union[str, Sequence[str], None] = None
+   |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+17 | branch_labels: Union[str, Sequence[str], None] = None
+18 | depends_on: Union[str, Sequence[str], None] = None
+   |
+help: Convert to `X | Y`
+
+UP007 [*] Use `X | Y` for type annotations
+  --> backend/alembic/versions/488077f4cdad_initial_models.py:17:16
+   |
+15 | revision: str = '488077f4cdad'
+16 | down_revision: Union[str, Sequence[str], None] = None
+17 | branch_labels: Union[str, Sequence[str], None] = None
+   |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+18 | depends_on: Union[str, Sequence[str], None] = None
+   |
+help: Convert to `X | Y`
+
+UP007 [*] Use `X | Y` for type annotations
+  --> backend/alembic/versions/488077f4cdad_initial_models.py:18:13
+   |
+16 | down_revision: Union[str, Sequence[str], None] = None
+17 | branch_labels: Union[str, Sequence[str], None] = None
+18 | depends_on: Union[str, Sequence[str], None] = None
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+help: Convert to `X | Y`
+
+E501 Line too long (105 > 100)
+  --> backend/alembic/versions/488077f4cdad_initial_models.py:32:101
+   |
+30 |     sa.Column('last_login_at', sa.DateTime(timezone=True), nullable=True),
+31 |     sa.Column('id', sa.UUID(as_uuid=False), nullable=False),
+32 |     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
+   |                                                                                                     ^^^^^
+33 |     sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
+34 |     sa.Column('deleted_at', sa.DateTime(timezone=True), nullable=True),
+   |
+
+E501 Line too long (105 > 100)
+  --> backend/alembic/versions/488077f4cdad_initial_models.py:33:101
+   |
+31 |     sa.Column('id', sa.UUID(as_uuid=False), nullable=False),
+32 |     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
+33 |     sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
+   |                                                                                                     ^^^^^
+34 |     sa.Column('deleted_at', sa.DateTime(timezone=True), nullable=True),
+35 |     sa.PrimaryKeyConstraint('id')
+   |
+
+E501 Line too long (162 > 100)
+  --> backend/alembic/versions/488077f4cdad_initial_models.py:47:101
+   |
+45 | …
+46 | …
+47 | …TED', 'FAILED', name='reviewstatus', native_enum=False, create_constraint=True), nullable=False),
+   |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+48 | …
+49 | …
+   |
+
+E501 Line too long (105 > 100)
+  --> backend/alembic/versions/488077f4cdad_initial_models.py:53:101
+   |
+51 |     sa.Column('model', sa.String(length=100), nullable=True),
+52 |     sa.Column('id', sa.UUID(as_uuid=False), nullable=False),
+53 |     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
+   |                                                                                                     ^^^^^
+54 |     sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
+55 |     sa.Column('deleted_at', sa.DateTime(timezone=True), nullable=True),
+   |
+
+E501 Line too long (105 > 100)
+  --> backend/alembic/versions/488077f4cdad_initial_models.py:54:101
+   |
+52 |     sa.Column('id', sa.UUID(as_uuid=False), nullable=False),
+53 |     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
+54 |     sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
+   |                                                                                                     ^^^^^
+55 |     sa.Column('deleted_at', sa.DateTime(timezone=True), nullable=True),
+56 |     sa.ForeignKeyConstraint(['user_id'], ['user.id'], ondelete='CASCADE'),
+   |
+
+E501 Line too long (149 > 100)
+  --> backend/alembic/versions/488077f4cdad_initial_models.py:66:101
+   |
+64 | …e),
+65 | …
+66 | …PLETED', name='sessionstatus', native_enum=False, create_constraint=True), nullable=False),
+   |                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+67 | …llable=True),
+68 | …=False),
+   |
+
+E501 Line too long (105 > 100)
+  --> backend/alembic/versions/488077f4cdad_initial_models.py:71:101
+   |
+69 |     sa.Column('total_output_tokens', sa.Integer(), nullable=False),
+70 |     sa.Column('id', sa.UUID(as_uuid=False), nullable=False),
+71 |     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
+   |                                                                                                     ^^^^^
+72 |     sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
+73 |     sa.Column('deleted_at', sa.DateTime(timezone=True), nullable=True),
+   |
+
+E501 Line too long (105 > 100)
+  --> backend/alembic/versions/488077f4cdad_initial_models.py:72:101
+   |
+70 |     sa.Column('id', sa.UUID(as_uuid=False), nullable=False),
+71 |     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
+72 |     sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
+   |                                                                                                     ^^^^^
+73 |     sa.Column('deleted_at', sa.DateTime(timezone=True), nullable=True),
+74 |     sa.ForeignKeyConstraint(['code_review_id'], ['code_review.id'], ondelete='SET NULL'),
+   |
+
+E501 Line too long (109 > 100)
+  --> backend/alembic/versions/488077f4cdad_initial_models.py:78:101
+   |
+76 |     sa.PrimaryKeyConstraint('id')
+77 |     )
+78 |     op.create_index(op.f('ix_chat_session_code_review_id'), 'chat_session', ['code_review_id'], unique=False)
+   |                                                                                                     ^^^^^^^^^
+79 |     op.create_index(op.f('ix_chat_session_deleted_at'), 'chat_session', ['deleted_at'], unique=False)
+80 |     op.create_index(op.f('ix_chat_session_user_id'), 'chat_session', ['user_id'], unique=False)
+   |
+
+E501 Line too long (101 > 100)
+  --> backend/alembic/versions/488077f4cdad_initial_models.py:79:101
+   |
+77 |     )
+78 |     op.create_index(op.f('ix_chat_session_code_review_id'), 'chat_session', ['code_review_id'], unique=False)
+79 |     op.create_index(op.f('ix_chat_session_deleted_at'), 'chat_session', ['deleted_at'], unique=False)
+   |                                                                                                     ^
+80 |     op.create_index(op.f('ix_chat_session_user_id'), 'chat_session', ['user_id'], unique=False)
+81 |     op.create_table('message',
+   |
+
+E501 Line too long (105 > 100)
+  --> backend/alembic/versions/488077f4cdad_initial_models.py:90:101
+   |
+88 |     sa.Column('sequence', sa.Integer(), nullable=False),
+89 |     sa.Column('id', sa.UUID(as_uuid=False), nullable=False),
+90 |     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
+   |                                                                                                     ^^^^^
+91 |     sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
+92 |     sa.ForeignKeyConstraint(['session_id'], ['chat_session.id'], ondelete='CASCADE'),
+   |
+
+E501 Line too long (105 > 100)
+  --> backend/alembic/versions/488077f4cdad_initial_models.py:91:101
+   |
+89 |     sa.Column('id', sa.UUID(as_uuid=False), nullable=False),
+90 |     sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
+91 |     sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
+   |                                                                                                     ^^^^^
+92 |     sa.ForeignKeyConstraint(['session_id'], ['chat_session.id'], ondelete='CASCADE'),
+93 |     sa.PrimaryKeyConstraint('id')
+   |
+
+Found 18 errors.
+[*] 5 fixable with the `--fix` option (1 hidden fix can be enabled with the `--unsafe-fixes` option).
+Error: Process completed with exit code 1.

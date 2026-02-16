@@ -13,6 +13,19 @@ claude/stats-cache.json
 claude/statsig/
 claude/todos/
 claude/plugins/marketplaces/
+claude/cache/
+claude/paste-cache/
+claude/plans/
+claude/tasks/
+claude/plugins/known_marketplaces.json
+claude/claude
+claude/session-env/
+claude/telemetry/
+claude/downloads/
 
 # Neovim - 既に設定されているはずだが念のため
 nvim/lazy-lock.json
+
+# Secrets
+.secrets
+*.secrets

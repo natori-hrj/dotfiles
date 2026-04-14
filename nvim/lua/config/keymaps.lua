@@ -74,3 +74,10 @@ end, { noremap = true, silent = true, desc = "Previous diagnostic" })
 keymap.set("n", "<leader>?", function()
   Snacks.picker.keymaps({ filter = { "" } })
 end, { desc = "Show all keymaps" })
+
+-- Toggle completion (nvim-cmp)
+vim.g.cmp_enabled = true
+keymap.set("n", "<leader>uC", function()
+  vim.g.cmp_enabled = not vim.g.cmp_enabled
+  vim.notify("Completion " .. (vim.g.cmp_enabled and "enabled" or "disabled"))
+end, { desc = "Toggle completion" })

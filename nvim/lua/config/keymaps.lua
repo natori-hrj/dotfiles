@@ -63,9 +63,12 @@ keymap.set("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to upper window" })
 keymap.set("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" })
 
 -- Diagnostics
-keymap.set("n", "<C-j>", function()
+keymap.set("n", "<leader>dj", function()
   vim.diagnostic.jump({ count = 1, float = true })
 end, { noremap = true, silent = true, desc = "Next diagnostic" })
+keymap.set("n", "<leader>dk", function()
+  vim.diagnostic.jump({ count = -1, float = true })
+end, { noremap = true, silent = true, desc = "Previous diagnostic" })
 
 -- Show all custom keymaps
 keymap.set("n", "<leader>?", function()

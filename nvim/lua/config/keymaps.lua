@@ -75,7 +75,7 @@ keymap.set("n", "<leader>?", function()
   Snacks.picker.keymaps({ filter = { "" } })
 end, { desc = "Show all keymaps" })
 
--- Toggle completion (nvim-cmp)
+-- Toggle completion (blink.cmp)
 vim.g.cmp_enabled = true
 keymap.set("n", "<leader>uC", function()
   vim.g.cmp_enabled = not vim.g.cmp_enabled

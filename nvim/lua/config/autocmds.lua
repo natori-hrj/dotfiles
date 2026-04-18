@@ -26,6 +26,18 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Go用のオートコマンド
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "go",
+  callback = function()
+    vim.opt_local.tabstop = 4
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.expandtab = false -- Go はタブを使用
+    vim.opt_local.autoindent = true
+    vim.opt_local.smartindent = true
+  end,
+})
+
 -- ターミナルモードの設定
 vim.api.nvim_create_autocmd("TermOpen", {
   pattern = "*",

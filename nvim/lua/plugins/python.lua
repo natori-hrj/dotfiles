@@ -41,7 +41,7 @@ return {
     build = ":TSUpdate",
     main = "nvim-treesitter.configs",
     opts = {
-      ensure_installed = { "python", "lua" },
+      ensure_installed = { "python", "lua", "go", "gomod", "gosum" },
       highlight = { enable = true },
       indent = { enable = true },
     },

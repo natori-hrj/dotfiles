@@ -34,7 +34,6 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.shiftwidth = 4
     vim.opt_local.expandtab = false -- Go はタブを使用
     vim.opt_local.autoindent = true
-    vim.opt_local.smartindent = true
   end,
 })
 

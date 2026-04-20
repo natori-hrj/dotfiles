@@ -3,7 +3,7 @@ return {
   lazy = true,
   priority = 1000,
   opts = {
-    thrme = "dragon",
+    theme = "dragon",
     transparent = true,
     overrides = function()
       return {

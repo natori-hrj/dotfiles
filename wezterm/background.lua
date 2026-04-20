@@ -2,7 +2,7 @@ local background_image = "/Users/natori/dotfiles/wezterm/IMG_0153.png"
 
 return {
   {
-    source = { Color = "#000000" },
+    source = { Color = "#16161D" },
     width = "100%",
     height = "100%",
   },

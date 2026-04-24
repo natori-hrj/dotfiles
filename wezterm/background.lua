@@ -1,4 +1,4 @@
-local background_image = "/Users/natori/dotfiles/wezterm/IMG_0153.png"
+local background_image = os.getenv("HOME") .. "/Pictures/gopher.jpeg"
 
 return {
   {
@@ -11,6 +11,6 @@ return {
     horizontal_align = "Center",
     vertical_align = "Middle",
     hsb = { brightness = 0.3 },
-    opacity = 0.85,
+    opacity = 0.10,
   },
 }

@@ -81,3 +81,15 @@ keymap.set("n", "<leader>uC", function()
   vim.g.cmp_enabled = not vim.g.cmp_enabled
   vim.notify("Completion " .. (vim.g.cmp_enabled and "enabled" or "disabled"))
 end, { desc = "Toggle completion" })
+
+-- Toggle missing imports diagnostic (Pyright)
+vim.g.pyright_missing_imports = true
+keymap.set("n", "<leader>um", function()
+  vim.g.pyright_missing_imports = not vim.g.pyright_missing_imports
+  local clients = vim.lsp.get_clients({ name = "pyright" })
+  for _, client in ipairs(clients) do
+    client.config.settings.python.analysis.reportMissingImports = vim.g.pyright_missing_imports
+    client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+  end
+  vim.notify("Missing imports diagnostic " .. (vim.g.pyright_missing_imports and "enabled" or "disabled"))
+end, { desc = "Toggle missing imports diagnostic" })

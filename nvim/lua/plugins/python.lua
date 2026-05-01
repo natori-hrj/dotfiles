@@ -21,6 +21,15 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
       lspconfig.pyright.setup({
+        before_init = function(_, config)
+          -- venv を自動検出
+          local venv = os.getenv("VIRTUAL_ENV")
+            or vim.fn.finddir(".venv", vim.fn.getcwd() .. ";")
+            or vim.fn.finddir("venv", vim.fn.getcwd() .. ";")
+          if venv and venv ~= "" then
+            config.settings.python.pythonPath = venv .. "/bin/python"
+          end
+        end,
         settings = {
           python = {
             analysis = {

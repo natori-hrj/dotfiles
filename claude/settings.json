@@ -21,6 +21,17 @@
       }
     ]
   },
+  "enabledPlugins": {
+    "vercel-plugin@vercel-vercel-plugin": true
+  },
+  "extraKnownMarketplaces": {
+    "vercel-vercel-plugin": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/natori/.cache/plugins/github.com-vercel-vercel-plugin"
+      }
+    }
+  },
   "permissionRules": [
     {
       "description": "ファイル作成・編集は必ず確認",
@@ -47,5 +58,6 @@
       "matcher": "tool_input.file_path matches '(tsconfig\\.json|next\\.config\\..*|vite\\.config\\..*|\\.eslintrc.*|requirements\\.txt|pyproject\\.toml)'",
       "action": "ask"
     }
-  ]
+  ],
+  "theme": "dark-daltonized"
 }

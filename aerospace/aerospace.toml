@@ -32,6 +32,10 @@ alt-4 = 'workspace 4'
 alt-n = 'workspace next'
 alt-p = 'workspace prev'
 
+# モニター間の移動
+alt-comma = 'focus-monitor left'
+alt-period = 'focus-monitor right'
+
 # ウィンドウをワークスペースへ送る
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
@@ -39,8 +43,8 @@ alt-shift-3 = 'move-node-to-workspace 3'
 alt-shift-4 = 'move-node-to-workspace 4'
 
 # レイアウト
-alt-slash = 'layout tiles horizontal vertical'
-alt-comma = 'layout accordion horizontal vertical'
+#alt-slash = 'layout tiles horizontal vertical'
+#alt-comma = 'layout accordion horizontal vertical'
 
 # フルスクリーン
 alt-f = 'fullscreen'

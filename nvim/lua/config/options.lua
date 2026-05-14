@@ -3,3 +3,6 @@
 -- Add any additional options here
 --
 vim.opt.cursorline = true -- 現在の行をハイライト
+local opt = vim.opt
+opt.spelllang = { "en", "cjk" }
+

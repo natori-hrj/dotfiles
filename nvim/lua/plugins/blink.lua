@@ -3,7 +3,13 @@ return {
   "saghen/blink.cmp",
   opts = {
     enabled = function()
-      return vim.g.cmp_enabled ~= false
+      if vim.g.cmp_enabled == false then
+        return false
+      end
+      if vim.bo.filetype == "markdown" then
+        return false
+      end
+      return true
     end,
   },
 }

@@ -56,19 +56,6 @@ end, { desc = "3-column layout (Explorer + Editor + Terminal)" })
 -- Terminal exit
 keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
--- Browser preview (carbonyl in Docker)
-keymap.set("n", "<leader>bp", function()
-  local url = vim.fn.input("URL: ", "http://localhost:3000")
-  if url == "" then
-    return
-  end
-  -- Docker container cannot reach host's localhost on macOS; rewrite to host.docker.internal
-  url = url:gsub("localhost", "host.docker.internal"):gsub("127%.0%.0%.1", "host.docker.internal")
-  vim.cmd("botright vsplit | terminal docker run --rm -ti fathyb/carbonyl " .. vim.fn.shellescape(url))
-  vim.cmd("vertical resize 80")
-  vim.cmd("startinsert")
-end, { desc = "Browser preview (carbonyl)" })
-
 -- Terminal window navigation
 keymap.set("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
 keymap.set("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to lower window" })

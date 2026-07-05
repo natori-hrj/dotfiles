@@ -42,6 +42,11 @@
 - `/plan` - 機能の実装計画を作成
 - `/code-review` - コードレビューを実行
 - `/tdd` - TDDサイクルで実装
+- `/delegate` - タスクを最適なモデルのサブエージェントに委譲
+
+## モデル使い分け
+- サブエージェント委譲時は `model-routing` skill の基準でモデルを選択
+- 探索=haiku / 実装=sonnet / 設計・検証=opus / 迷ったら省略（継承）
 
 ## ファイル構成
 
@@ -57,7 +62,10 @@ claude/
 ├── commands/          # スラッシュコマンド
 │   ├── plan.md
 │   ├── code-review.md
-│   └── tdd.md
+│   ├── tdd.md
+│   └── delegate.md
+├── skills/            # スキル（新形式: <name>/SKILL.md）
+│   └── model-routing/ # モデル使い分けガイド
 └── rules/             # 常に適用されるルール
     ├── security.md
     ├── testing.md

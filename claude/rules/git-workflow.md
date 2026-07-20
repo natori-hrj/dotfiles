@@ -11,9 +11,9 @@ description: Gitワークフローとコミット規約
 <type>: <subject>
 
 <body>
-
-Co-Authored-By: Claude <noreply@anthropic.com>
 ```
+
+**重要**: コミットメッセージに `Co-Authored-By` などの署名行を追加しない。
 
 ### タイプ一覧
 - `feat`: 新機能
@@ -65,6 +65,8 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 - [ ] ドキュメントを更新した
 - [ ] 破壊的変更がある場合は記載した
 ```
+
+**重要**: PR本文に `🤖 Generated with [Claude Code]` やセッションURLなどのフッターを追加しない。
 
 ## 禁止事項
 - mainへの直接push

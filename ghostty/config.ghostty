@@ -51,3 +51,7 @@ window-padding-y = 10
 window-padding-balance = true
 macos-titlebar-style = tabs
 macos-window-buttons = visible
+
+# Nord custom icon from https://github.com/jasonlong/ghostty-theme-icons
+macos-icon = custom
+macos-custom-icon = /Users/natori/dotfiles/ghostty/nord.icns

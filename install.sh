@@ -38,7 +38,7 @@ link() {
 mkdir -p "$CONFIG_DIR"
 
 # ~/.config 配下にリンクするディレクトリ
-for dir in nvim wezterm claude starship aerospace borders; do
+for dir in nvim wezterm ghostty claude starship aerospace borders; do
   if [ -d "$DOTFILES_DIR/$dir" ]; then
     link "$DOTFILES_DIR/$dir" "$CONFIG_DIR/$dir"
   fi

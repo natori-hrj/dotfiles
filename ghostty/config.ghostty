@@ -1,0 +1,53 @@
+# Minimal winter terminal
+# Reload with Cmd+Shift+, or restart Ghostty for font/titlebar changes.
+
+# The closest match to the reference is Apple's SF Mono. Ghostty 1.3.1 does not expose the
+# Terminal.app copy in its font discovery on this machine, so Menlo is the
+# deterministic fallback until SF Mono becomes visible to CoreText.
+font-family = SF Mono
+font-family = Menlo
+font-size = 14.5
+
+# Match the heavier, high-contrast text in the reference UI on Retina displays.
+font-thicken = true
+font-thicken-strength = 160
+
+background = 121419
+foreground = F2EFE9
+background-image = /Users/natori/dotfiles/ghostty/terminal-winter-landscape.png
+background-image-fit = cover
+background-image-position = center
+background-image-opacity = 0.42
+background-opacity = 1
+
+cursor-color = F2EFE9
+cursor-opacity = 0.85
+cursor-style = bar
+cursor-style-blink = false
+
+selection-background = 756F68
+selection-foreground = FFFDF8
+
+# Muted, low-saturation ANSI colors to keep the background readable.
+palette = 0=#22242A
+palette = 1=#C9857E
+palette = 2=#9BB58E
+palette = 3=#C5AA7A
+palette = 4=#8EA8C5
+palette = 5=#AD9AB7
+palette = 6=#8FB8B1
+palette = 7=#E7E3DC
+palette = 8=#5B5D63
+palette = 9=#E2A19A
+palette = 10=#BDD2AD
+palette = 11=#D9C08F
+palette = 12=#B0C8E1
+palette = 13=#C4B1CE
+palette = 14=#B0D3CB
+palette = 15=#FFFDF8
+
+window-padding-x = 14
+window-padding-y = 10
+window-padding-balance = true
+macos-titlebar-style = tabs
+macos-window-buttons = visible

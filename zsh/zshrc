@@ -13,3 +13,10 @@ if [ -f '/Users/natori/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/natori/g
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/natori/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/natori/google-cloud-sdk/completion.zsh.inc'; fi
+
+# bun completions
+[ -s "/Users/natori/.bun/_bun" ] && source "/Users/natori/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

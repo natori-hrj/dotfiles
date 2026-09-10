@@ -1,83 +1,66 @@
 {
-  "agentPushNotifEnabled": true,
-  "enabledPlugins": {
-    "vercel-plugin@vercel-vercel-plugin": true
+  "attribution": {
+    "commit": "",
+    "pr": "",
+    "sessionUrl": false
   },
-  "extraKnownMarketplaces": {
-    "vercel-vercel-plugin": {
-      "source": {
-        "path": "/Users/natori/.cache/plugins/github.com-vercel-vercel-plugin",
-        "source": "directory"
-      }
-    }
+  "includeCoAuthoredBy": false,
+  "permissions": {
+    "ask": [
+      "Write",
+      "Edit",
+      "Bash(git *)"
+    ]
   },
   "hooks": {
     "PreToolUse": [
       {
+        "matcher": "Bash",
         "hooks": [
           {
-            "command": "#!/bin/bash\necho '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━' >&2\necho '🚫 Git操作はブロックされています' >&2\necho '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━' >&2\necho '' >&2\necho '安全のため、Git操作は手動で実行してください' >&2\necho '' >&2\necho 'コマンド:' >&2\necho \"  $(echo \"$@\" | jq -r '.tool_input.command // \"\"')\" >&2\necho '' >&2\necho 'ターミナルで手動実行してください' >&2\necho '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━' >&2\nexit 1",
-            "type": "command"
-          }
-        ],
-        "matcher": "tool == 'Bash' && tool_input.command matches 'git (commit|push|merge|rebase)'"
-      },
-      {
-        "hooks": [
+            "type": "command",
+            "command": "bash '/Users/natori/.claude/hooks/block-git-write.sh'",
+            "timeout": 10
+          },
           {
-            "command": "#!/bin/bash\necho '⚠️  危険なコマンド: rm -rf' >&2\necho \"コマンド: $(echo \"$@\" | jq -r '.tool_input.command // \"\"')\" >&2\necho '本当に実行しますか？必ず内容を確認してください' >&2\nexit 1",
-            "type": "command"
+            "type": "command",
+            "command": "bash '/Users/natori/.claude/hooks/confirm-destructive.sh'",
+            "timeout": 10
           }
-        ],
-        "matcher": "tool == 'Bash' && tool_input.command matches '(rm|rmdir) .*-rf'"
+        ]
       }
     ],
     "SessionStart": [
       {
+        "matcher": "*",
         "hooks": [
           {
+            "type": "command",
             "command": "bash '/Users/natori/.claude/hooks/herdr-agent-state.sh' session",
-            "timeout": 10,
-            "type": "command"
+            "timeout": 10
           }
-        ],
-        "matcher": "*"
+        ]
       }
     ]
   },
-  "includeCoAuthoredBy": false,
-  "inputNeededNotifEnabled": false,
-  "permissionRules": [
-    {
-      "action": "ask",
-      "description": "ファイル作成・編集は必ず確認",
-      "matcher": "tool == 'Write' || tool == 'Edit' || tool == 'MultiEdit'"
-    },
-    {
-      "action": "ask",
-      "description": "Gitコマンドは必ず確認",
-      "matcher": "tool == 'Bash' && tool_input.command matches 'git'"
-    },
-    {
-      "action": "ask",
-      "description": "package.json変更は必ず確認",
-      "matcher": "tool_input.file_path matches 'package\\.json'"
-    },
-    {
-      "action": "ask",
-      "description": "環境変数ファイル変更は必ず確認",
-      "matcher": "tool_input.file_path matches '\\.(env|env\\..*)'"
-    },
-    {
-      "action": "ask",
-      "description": "設定ファイル変更は必ず確認",
-      "matcher": "tool_input.file_path matches '(tsconfig\\.json|next\\.config\\..*|vite\\.config\\..*|\\.eslintrc.*|requirements\\.txt|pyproject\\.toml)'"
-    }
-  ],
   "statusLine": {
-    "command": "/Users/natori/.claude/runcat-statusline.py",
-    "type": "command"
+    "type": "command",
+    "command": "/Users/natori/.claude/runcat-statusline.py"
   },
+  "enabledPlugins": {
+    "vercel-plugin@vercel-vercel-plugin": true,
+    "vercel@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "vercel-vercel-plugin": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/natori/.cache/plugins/github.com-vercel-vercel-plugin"
+      }
+    }
+  },
+  "tui": "fullscreen",
   "theme": "dark-daltonized",
-  "tui": "fullscreen"
+  "inputNeededNotifEnabled": false,
+  "agentPushNotifEnabled": true
 }

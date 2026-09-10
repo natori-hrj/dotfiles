@@ -18,7 +18,7 @@ return {
       lang = "golang",
       cn = { enabled = false },
       storage = {
-        home = vim.fn.stdpath("data") .. "/leetcode",
+        home = vim.fn.expand("~/work/leetcode-golang/"),
         cache = vim.fn.stdpath("cache") .. "/leetcode",
       },
       injector = {
@@ -27,8 +27,17 @@ return {
         },
       },
       hooks = {
-        ["enter"] = {},
-        ["question_enter"] = {},
+        -- storage の初期化は `:Leet` 起動時なので、パス差し替えもそのタイミングで行う
+        ["enter"] = {
+          function()
+            require("leetcode_repo").setup()
+          end,
+        },
+        ["question_enter"] = {
+          function(question)
+            require("leetcode_repo").on_question_enter(question)
+          end,
+        },
         ["leave"] = {},
       },
       keys = {
@@ -50,6 +59,13 @@ return {
       { "<leader>lc", "<cmd>Leet console<cr>", desc = "LeetCode: console" },
       { "<leader>li", "<cmd>Leet info<cr>", desc = "LeetCode: info" },
       { "<leader>lm", "<cmd>Leet menu<cr>", desc = "LeetCode: menu" },
+      {
+        "<leader>ln",
+        function()
+          require("leetcode_repo").open_note()
+        end,
+        desc = "LeetCode: 解答メモ (answer.md)",
+      },
     },
   },
 }

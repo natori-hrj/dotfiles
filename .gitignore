@@ -1,0 +1,27 @@
+# Secrets
+*.key
+*.pem
+*.env
+.env
+.env.*
+
+# SSH private keys
+id_rsa
+id_rsa_*
+id_ed25519
+id_ed25519_*
+
+# Temporary / backup files
+*.swp
+*.swo
+*.tmp
+*.bak
+*~
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+

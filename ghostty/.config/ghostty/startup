@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+
+# Play the provided terminal animation, then hand over to the interactive shell.
+shell=${SHELL:-/bin/bash}
+
+if [[ ${GHOSTTY_STARTUP_ANIMATION:-1} != 1 || ! -t 0 || ! -t 1 ]]; then
+  exec "$shell" -i
+fi
+
+white=$'\033[38;2;245;247;250m'
+muted=$'\033[38;2;139;151;174m'
+reset=$'\033[0m'
+
+type_line() {
+  local color=$1 text=$2 delay=$3 index
+  printf '%b' "$color"
+  for ((index = 0; index < ${#text}; index++)); do
+    printf '%s' "${text:index:1}"
+    sleep "$delay"
+  done
+  printf '%b' "$reset"
+}
+
+video="$HOME/.config/ghostty/natori_coffee_startup.mov"
+renderer="$HOME/.config/ghostty/play_animation.py"
+text_video="$HOME/.config/ghostty/startup_text.mov"
+text_image="$HOME/.config/ghostty/startup_text.png"
+cols=$(tput cols 2>/dev/null) || cols=80
+rows=$(tput lines 2>/dev/null) || rows=24
+[[ $cols =~ ^[0-9]+$ ]] || cols=80
+[[ $rows =~ ^[0-9]+$ ]] || rows=24
+image_cols=$(( cols * 58 / 100 ))
+(( image_cols > 50 )) && image_cols=50
+max_image_cols=$(( cols - 19 ))
+(( image_cols > max_image_cols )) && image_cols=$max_image_cols
+image_rows=$(( (image_cols * 8 + 13) / 27 ))
+max_image_rows=$(( rows - 4 ))
+(( image_rows > max_image_rows )) && image_rows=$max_image_rows
+text_col=$(( image_cols + 4 ))
+text_rows=4
+text_row=$(( (image_rows - text_rows) / 2 + 1 ))
+text_cols=$(( cols - text_col - 1 ))
+(( text_cols > 44 )) && text_cols=44
+prompt_row=$(( image_rows + 2 ))
+
+if (( cols >= 54 && rows >= 13 )) \
+  && command -v ffmpeg >/dev/null 2>&1 && command -v python3 >/dev/null 2>&1 \
+  && [[ -r $video && -r $renderer && -r $text_video && -r $text_image ]]; then
+  if python3 "$renderer" "$video" "$image_cols" "$image_rows" \
+    "$text_video" "$text_image" "$text_cols" "$text_rows" "$text_col" "$text_row"; then
+    printf '\033[%d;1H\033[?25h%b' "$prompt_row" "$reset"
+    exec "$shell" -i
+  fi
+fi
+
+logo_width=9
+logo_left=$(( (cols - logo_width) / 2 + 1 ))
+(( logo_left < 1 )) && logo_left=1
+
+printf '\033[2J\033[?25l'
+for ((col = 0; col < logo_width; col++)); do
+  for ((row = 0; row < 7; row++)); do
+    printf '\033[%d;%dH' "$((row + 2))" "$((logo_left + col))"
+    if ((col < 2 || col >= 7 || (row < 5 && col == row + 2))); then
+      printf '%b█%b' "$white" "$reset"
+    else
+      printf ' '
+    fi
+  done
+  sleep 0.055
+done
+
+title_row=10
+title_left=$(( (cols - 6) / 2 + 1 ))
+(( title_left < 1 )) && title_left=1
+printf '\033[%d;%dH' "$title_row" "$title_left"
+type_line "$white" 'natori' 0.045
+
+tagline='GHOSTTY / OMARCHY'
+tagline_row=11
+tagline_left=$(( (cols - ${#tagline}) / 2 + 1 ))
+(( tagline_left < 1 )) && tagline_left=1
+printf '\033[%d;%dH' "$tagline_row" "$tagline_left"
+type_line "$muted" "$tagline" 0.018
+
+caption='Coffee first. Then code.'
+caption_left=$(( (cols - ${#caption}) / 2 + 1 ))
+(( caption_left < 1 )) && caption_left=1
+printf '\033[13;%dH' "$caption_left"
+type_line "$white" "$caption" 0.045
+
+printf '\033[15;1H\033[?25h%b' "$reset"
+
+exec "$shell" -i

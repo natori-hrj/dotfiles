@@ -1,0 +1,4 @@
+# Keep the standard Omarchy bar engine, with enough cross-axis room for the island.
+[bar]
+size-horizontal = 64
+scale-with-font = false

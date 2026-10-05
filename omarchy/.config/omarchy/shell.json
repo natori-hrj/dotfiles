@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "idle": {
+    "screensaver": 150,
+    "lock": 300
+  },
+  "bar": {
+    "id": "natori.bar",
+    "position": "top",
+    "transparent": true,
+    "centerAnchor": "dynamic-island",
+    "layout": {
+      "left": [],
+      "center": [
+        {
+          "id": "dynamic-island",
+          "type": "qml"
+        }
+      ],
+      "right": []
+    }
+  },
+  "plugins": [
+    {
+      "id": "natori.notifications"
+    }
+  ],
+  "disabledPlugins": [
+    "omarchy.notifications"
+  ]
+}

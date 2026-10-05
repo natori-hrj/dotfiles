@@ -1,14 +1,17 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.Commons
+import "."
 
 Item {
   id: root
 
   property var player: null
+  property var bar: null
   property color foreground: "white"
   property color accent: "white"
   property string fontFamily: "monospace"
+  property bool popupOpen: false
 
   readonly property bool hasTrack: !!(player && (player.trackTitle || player.trackArtist
     || player.trackAlbum || player.trackArtUrl))
@@ -21,6 +24,29 @@ Item {
 
   implicitWidth: 220
   implicitHeight: 40
+
+  function showCard() {
+    closeTimer.stop()
+    popupOpen = hasTrack
+  }
+
+  function closeCard() {
+    closeTimer.stop()
+    popupOpen = false
+  }
+
+  function close() {
+    closeCard()
+  }
+
+  Timer {
+    id: closeTimer
+    interval: 220
+    repeat: false
+    onTriggered: {
+      if (!mediaHover.hovered && !musicCard.containsMouse) root.closeCard()
+    }
+  }
 
   RowLayout {
     anchors.fill: parent
@@ -36,6 +62,15 @@ Item {
       radius: 8
       clip: true
       color: Qt.rgba(root.accent.r, root.accent.g, root.accent.b, 0.16)
+
+      HoverHandler {
+        id: mediaHover
+        enabled: root.hasTrack
+        onHoveredChanged: {
+          if (hovered) root.showCard()
+          else closeTimer.restart()
+        }
+      }
 
       Image {
         id: artwork
@@ -89,6 +124,33 @@ Item {
         maximumLineCount: 1
         verticalAlignment: Text.AlignVCenter
       }
+    }
+  }
+
+  MediaCardPopup {
+    id: musicCard
+    anchorItem: root
+    bar: root.bar
+    owner: root
+    player: root.player
+    fontFamily: root.fontFamily
+    open: root.popupOpen
+
+    onContainsMouseChanged: {
+      if (containsMouse) closeTimer.stop()
+      else if (root.popupOpen && !mediaHover.hovered) closeTimer.restart()
+    }
+  }
+
+  onHasTrackChanged: {
+    if (!hasTrack) closeCard()
+  }
+
+  Connections {
+    target: root.player
+    function onPostTrackChanged() {
+      root.playhead = root.player && root.player.positionSupported
+        ? Number(root.player.position) || 0 : 0
     }
   }
 }

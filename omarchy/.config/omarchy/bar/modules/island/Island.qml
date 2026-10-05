@@ -73,7 +73,7 @@ Item {
     repeat: false
     onTriggered: {
       if (islandHover.hovered) return
-      if (codexView.popupOpen || systemStatsView.popupOpen
+      if (mediaView.popupOpen || codexView.popupOpen || systemStatsView.popupOpen
           || notificationView.keepIslandExpanded) {
         restart()
         return
@@ -242,11 +242,13 @@ Item {
     }
 
     MediaView {
+      id: mediaView
       Layout.fillWidth: true
       Layout.minimumWidth: 160
       Layout.preferredWidth: 220
       Layout.fillHeight: true
       player: root.activePlayer
+      bar: root.bar
       foreground: root.islandForeground
       accent: Color.accent
       fontFamily: root.bar ? root.bar.fontFamily : "monospace"

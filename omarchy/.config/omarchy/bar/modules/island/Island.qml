@@ -27,7 +27,7 @@ Item {
   readonly property color islandBackground: {
     const background = Color.background
     return Qt.rgba(Math.max(0.055, background.r * 0.34),
-      Math.max(0.06, background.g * 0.34), Math.max(0.07, background.b * 0.34), 0.98)
+      Math.max(0.06, background.g * 0.34), Math.max(0.07, background.b * 0.34), 0.82)
   }
   readonly property color islandBorder: Qt.rgba(Color.foreground.r,
     Color.foreground.g, Color.foreground.b, 0.15)
@@ -38,7 +38,7 @@ Item {
   readonly property int expandedWidth: 530
 
   implicitWidth: expanded ? expandedWidth : compactWidth
-  implicitHeight: bar && bar.barSize > 0 ? bar.barSize : 64
+  implicitHeight: 64
 
   function selectActivePlayer() {
     var trackCandidate = null
@@ -126,9 +126,15 @@ Item {
 
     ClockView {
       id: compactClock
-      anchors.centerIn: parent
       width: 40
       height: 26
+      y: {
+        const rowHeight = root.bar && root.bar.barSize > 0 ? root.bar.barSize : parent.height
+        const rowTop = root.bar && root.bar.position === "bottom"
+          ? parent.height - rowHeight : 0
+        return rowTop + (rowHeight - height) / 2
+      }
+      anchors.horizontalCenter: parent.horizontalCenter
       timeText: root.clockText
       fontFamily: root.bar ? root.bar.fontFamily : "monospace"
       accentColor: Color.accent

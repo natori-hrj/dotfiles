@@ -1233,6 +1233,7 @@ Item {
 
   component BarPanel: PanelWindow {
     id: barWindow
+    readonly property int surfaceHeight: Math.max(root.barSize, 64)
 
     // Hiding parks the bar just past its screen edge instead of unmapping it.
     // Unmapping frees the layer surface and the whole scene graph, so every
@@ -1240,7 +1241,10 @@ Item {
     // textures — which measures ~150ms against ~20ms to tear down. Parking
     // keeps the surface alive, so showing is only a margin change.
     visible: !remapGuard.remapping
-    exclusionMode: root.barHidden ? ExclusionMode.Ignore : ExclusionMode.Auto
+    // Keep the app reservation at one bar row while the taller Island surface
+    // remains the same size in both its compact and expanded states.
+    exclusionMode: ExclusionMode.Normal
+    exclusiveZone: root.barHidden ? 0 : root.barSize
 
     ScreenMoveRemap {
       id: remapGuard
@@ -1248,8 +1252,8 @@ Item {
     }
 
     margins {
-      top: root.barHidden && root.position === "top" ? -root.barSize : 0
-      bottom: root.barHidden && root.position === "bottom" ? -root.barSize : 0
+      top: root.barHidden && root.position === "top" ? -barWindow.surfaceHeight : 0
+      bottom: root.barHidden && root.position === "bottom" ? -barWindow.surfaceHeight : 0
       left: root.barHidden && root.position === "left" ? -root.barSize : 0
       right: root.barHidden && root.position === "right" ? -root.barSize : 0
     }
@@ -1262,7 +1266,7 @@ Item {
     }
 
     implicitWidth: root.vertical ? root.barSize : 0
-    implicitHeight: root.vertical ? 0 : root.barSize
+    implicitHeight: root.vertical ? 0 : barWindow.surfaceHeight
     color: root.transparent ? "transparent" : root.background
     surfaceFormat.opaque: false
     WlrLayershell.namespace: "omarchy-bar"
@@ -1358,13 +1362,19 @@ Item {
         LeftModules {
           anchors.left: parent.left
           anchors.leftMargin: Style.space(8)
-          anchors.verticalCenter: parent.verticalCenter
+          anchors.top: parent.top
+          anchors.topMargin: root.position === "bottom"
+            ? Math.max(0, parent.height - root.barSize) + Math.max(0, (root.barSize - height) / 2)
+            : Math.max(0, (root.barSize - height) / 2)
         }
 
         RightModules {
           anchors.right: parent.right
           anchors.rightMargin: Style.space(8)
-          anchors.verticalCenter: parent.verticalCenter
+          anchors.top: parent.top
+          anchors.topMargin: root.position === "bottom"
+            ? Math.max(0, parent.height - root.barSize) + Math.max(0, (root.barSize - height) / 2)
+            : Math.max(0, (root.barSize - height) / 2)
         }
       }
     }

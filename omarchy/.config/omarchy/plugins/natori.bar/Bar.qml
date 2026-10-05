@@ -278,6 +278,16 @@ Item {
     return api
   }
 
+  function injectModuleProps(target, firstParty, pluginApiId, moduleName, registered, settings) {
+    if (!target) return
+    if ("barApi" in target) target.barApi = firstParty
+      ? root : pluginBarApiFor(pluginApiId, moduleName, registered)
+    if ("bar" in target) target.bar = firstParty
+      ? root : pluginBarApiFor(pluginApiId, moduleName, registered)
+    if ("moduleName" in target) target.moduleName = moduleName
+    if ("settings" in target) target.settings = settings
+  }
+
   function pluginBarApiUsed(pluginId) {
     for (var i = 0; i < moduleSlots.length; i++) {
       var slot = moduleSlots[i]
@@ -1851,10 +1861,7 @@ Item {
       sourceComponent: slot.commandCustom ? customCommandModuleComponent : emptyModuleComponent
       anchors.fill: parent
       opacity: slot.dragSource ? 0.22 : 1.0
-      onLoaded: {
-        slot.injectProps()
-        Qt.callLater(slot.injectProps)
-      }
+      onLoaded: slot.injectProps()
     }
 
     Loader {
@@ -1863,10 +1870,7 @@ Item {
       sourceComponent: slot.registered ? slot.registryComponent : null
       anchors.fill: parent
       opacity: slot.dragSource ? 0.22 : 1.0
-      onLoaded: {
-        slot.injectProps()
-        Qt.callLater(slot.injectProps)
-      }
+      onLoaded: slot.injectProps()
     }
 
     Loader {
@@ -1875,10 +1879,7 @@ Item {
       source: slot.qmlCustom ? root.customModuleSource(slot.entry) : ""
       anchors.fill: parent
       opacity: slot.dragSource ? 0.22 : 1.0
-      onLoaded: {
-        slot.injectProps()
-        Qt.callLater(slot.injectProps)
-      }
+      onLoaded: slot.injectProps()
     }
 
     Rectangle {
@@ -2003,16 +2004,12 @@ Item {
       }
     }
 
-    onActiveItemChanged: Qt.callLater(injectProps)
+    onActiveItemChanged: injectProps()
     onModuleSettingsChanged: injectProps()
 
     function injectProps() {
-      var target = activeItem
-      if (!target) return
-      if ("bar" in target) target.bar = firstParty
-        ? root : root.pluginBarApiFor(pluginApiId, moduleName, registered)
-      if ("moduleName" in target) target.moduleName = moduleName
-      if ("settings" in target) target.settings = moduleSettings
+      root.injectModuleProps(activeItem, firstParty, pluginApiId,
+        moduleName, registered, moduleSettings)
     }
 
     Component {

@@ -67,7 +67,9 @@
       "topMargin": 6
     },
     {
-      "id": "io.github.sirjul1337.lock-explorer"
+      "id": "io.github.sirjul1337.lock-explorer",
+      "design": "my-natori-glass",
+      "avatar": "/home/natori/Downloads/profile.jpg"
     }
   ],
   "disabledPlugins": [

@@ -1,4 +1,8 @@
 # Keep a compact, stable single-row reservation for the bar and Island.
 [bar]
-size-horizontal = 40
+background = "#141415"
+background-alpha = 0.82
+text = "#d1d0d2"
+active = "#99979b"
+size-horizontal = 38
 scale-with-font = false

@@ -19,18 +19,9 @@ Item {
   readonly property bool hasMedia: !!(activePlayer && (activePlayer.trackTitle
     || activePlayer.trackArtist || activePlayer.trackAlbum || activePlayer.trackArtUrl))
   readonly property string presentationState: hasMedia ? "media" : "idle"
-  readonly property color islandForeground: {
-    const foreground = Color.foreground
-    const luminance = foreground.r * 0.2126 + foreground.g * 0.7152 + foreground.b * 0.0722
-    return luminance > 0.42 ? foreground : "#e6e8ea"
-  }
-  readonly property color islandBackground: {
-    const background = Color.background
-    return Qt.rgba(Math.max(0.055, background.r * 0.34),
-      Math.max(0.06, background.g * 0.34), Math.max(0.07, background.b * 0.34), 0.82)
-  }
-  readonly property color islandBorder: Qt.rgba(Color.foreground.r,
-    Color.foreground.g, Color.foreground.b, 0.15)
+  readonly property color islandForeground: Color.bar.text
+  readonly property color islandBackground: Color.bar.background
+  readonly property color islandBorder: Qt.rgba(0.60, 0.59, 0.61, 0.22)
   readonly property real sideInset: 20
   readonly property real bottomRadius: 10
   property bool expanded: false
@@ -124,6 +115,25 @@ Item {
       }
     }
 
+    Rectangle {
+      id: compactClockPlate
+      anchors.horizontalCenter: parent.horizontalCenter
+      y: compactClock.y + (compactClock.height - height) / 2
+      width: compactClock.width + Style.space(10)
+      height: Style.space(20)
+      radius: height / 2
+      color: Qt.rgba(0.075, 0.075, 0.08, 0.82)
+      border.width: 1
+      border.color: Qt.rgba(root.islandForeground.r, root.islandForeground.g,
+        root.islandForeground.b, 0.2)
+      opacity: compactClock.opacity
+      visible: opacity > 0
+
+      Behavior on opacity {
+        NumberAnimation { duration: 100; easing.type: Easing.OutCubic }
+      }
+    }
+
     ClockView {
       id: compactClock
       width: 40
@@ -137,8 +147,8 @@ Item {
       anchors.horizontalCenter: parent.horizontalCenter
       timeText: root.clockText
       fontFamily: root.bar ? root.bar.fontFamily : "monospace"
-      accentColor: Color.accent
-      fontSize: 12
+      accentColor: root.islandForeground
+      fontSize: 13
       opacity: root.expanded ? 0 : 1
       visible: opacity > 0
 
@@ -236,7 +246,7 @@ Item {
       Layout.fillHeight: true
       timeText: root.clockText
       fontFamily: root.bar ? root.bar.fontFamily : "monospace"
-      accentColor: Color.accent
+      accentColor: root.islandForeground
     }
 
     Rectangle {

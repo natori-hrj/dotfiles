@@ -1757,7 +1757,7 @@ Item {
       id: horizontalModuleList
 
       Row {
-        spacing: 0
+        spacing: Style.space(4)
 
         Repeater {
           model: moduleListRoot.entries

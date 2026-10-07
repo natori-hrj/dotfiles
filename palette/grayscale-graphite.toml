@@ -1,0 +1,57 @@
+# Grayscale Graphite palette, adapted from
+# https://github.com/andres-guzman/grayscale-graphite
+# Upstream project license: GPL-3.0-only (see LICENSE in this directory).
+
+[swatches]
+transparent = "#00000000"
+black = "#000000"
+graphite_01 = "#141415"
+graphite_02 = "#19191a"
+graphite_03 = "#2d2d2f"
+graphite_04 = "#383739"
+graphite_05 = "#474649"
+graphite_06 = "#4d4b4e"
+graphite_07 = "#565558"
+graphite_08 = "#7a787d"
+graphite_09 = "#8a878c"
+graphite_10 = "#99979b"
+graphite_11 = "#aba9ad"
+graphite_12 = "#bfbec1"
+graphite_13 = "#d1d0d2"
+graphite_14 = "#e0e0e1"
+error_dark = "#792a52"
+error_light = "#c7487a"
+
+[roles.core]
+background = "graphite_01"
+foreground = "graphite_13"
+cursor = "graphite_14"
+selection_background = "graphite_04"
+selection_foreground = "graphite_14"
+border_active = "graphite_10"
+border_inactive = "graphite_03"
+
+[roles.ansi]
+ansi_0 = "graphite_01"
+ansi_1 = "graphite_04"
+ansi_2 = "graphite_05"
+ansi_3 = "graphite_06"
+ansi_4 = "graphite_05"
+ansi_5 = "graphite_06"
+ansi_6 = "graphite_07"
+ansi_7 = "graphite_13"
+ansi_8 = "graphite_06"
+ansi_9 = "graphite_08"
+ansi_10 = "graphite_09"
+ansi_11 = "graphite_10"
+ansi_12 = "graphite_09"
+ansi_13 = "graphite_10"
+ansi_14 = "graphite_11"
+ansi_15 = "graphite_14"
+
+[roles.terminal]
+ansi_1 = "error_dark"
+
+[roles.hyprland]
+active_border = "graphite_10"
+inactive_border = "graphite_03"

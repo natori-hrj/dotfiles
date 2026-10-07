@@ -7,7 +7,6 @@
   "bar": {
     "position": "top",
     "transparent": true,
-    "centerAnchor": "dynamic-island",
     "layout": {
       "left": [
         {
@@ -17,12 +16,7 @@
           "id": "crmne.active-window"
         }
       ],
-      "center": [
-        {
-          "id": "dynamic-island",
-          "type": "qml"
-        }
-      ],
+      "center": [],
       "right": [
         {
           "id": "meviusisback.agent-orchestr"
@@ -35,15 +29,51 @@
   },
   "plugins": [
     {
-      "id": "natori.notifications"
+      "id": "omarchy-dynamic-island",
+      "style": "island",
+      "background": "theme",
+      "idle": "pill",
+      "idleFace": "ticker",
+      "scale": 1,
+      "reserveSpace": false,
+      "keybind": false,
+      "monitor": "primary",
+      "layer": "top",
+      "expandOnHover": true,
+      "clockFormat": "HH:mm",
+      "mediaLingerSeconds": 30,
+      "notchWidth": 0,
+      "notchHeight": 0,
+      "notchRadius": 0,
+      "visualizerColor": "accent",
+      "textFont": "theme",
+      "glow": false,
+      "calendars": [],
+      "calendarLeadMinutes": 15,
+      "holidays": "auto",
+      "timerSound": true,
+      "bluetooth": true,
+      "camera": true,
+      "calendar": true,
+      "notifications": true,
+      "inbox": true,
+      "osd": true,
+      "volume": true,
+      "brightness": true,
+      "charging": true,
+      "trackChange": true,
+      "recording": true,
+      "mic": true,
+      "topMargin": 6
     },
     {
       "id": "io.github.sirjul1337.lock-explorer"
     }
   ],
   "disabledPlugins": [
+    "omarchy.lock",
     "omarchy.notifications",
-    "omarchy.lock"
+    "omarchy.osd"
   ],
   "cloneSourceRestores": [
     "io.github.sirjul1337.lock-explorer"

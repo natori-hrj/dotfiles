@@ -1,0 +1,23 @@
+# Graphite colors matching Omarchy's monochrome shell palette.
+set default-bg "#141415"
+set default-fg "#d1d0d2"
+set statusbar-bg "#202022"
+set statusbar-fg "#d1d0d2"
+set inputbar-bg "#202022"
+set inputbar-fg "#d1d0d2"
+set notification-bg "#202022"
+set notification-fg "#d1d0d2"
+set completion-bg "#202022"
+set completion-fg "#d1d0d2"
+set completion-highlight-bg "#444447"
+set completion-highlight-fg "#f0f0f1"
+
+set database "sqlite"
+set continuous-hist-save true
+set open-first-page false
+
+set recolor true
+set recolor-lightcolor "#141415"
+set recolor-darkcolor "#d1d0d2"
+set recolor-keephue true
+set selection-clipboard clipboard

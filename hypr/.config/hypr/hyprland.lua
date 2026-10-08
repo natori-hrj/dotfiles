@@ -34,14 +34,14 @@ o.window("^chrome-music[.]youtube[.]com__-Default$", { tile = true, pseudo = tru
 -- Keep the library and reader side by side, and let both windows be resized.
 o.window({ class = "^(org\\.quickshell|quickshell)$", title = "^PDF Library$" }, {
   float = true,
-  size = { 780, 700 },
+  size = { 780, 620 },
   move = { "20", "(monitor_h-window_h)/2" }
 })
 
 o.window("^org\\.pwmt\\.zathura$", {
   float = true,
-  size = { 600, 800 },
-  move = { "(monitor_w-window_w-20)", "(monitor_h-window_h)/2" }
+  size = { 600, 700 },
+  move = { "(monitor_w-window_w-20)", "(monitor_h-window_h)/2-20" }
 })
 
 require("hypr.floating-mode")

@@ -18,9 +18,13 @@ State is stored outside the dotfiles at
 - The path field opens a PDF that is not in the scanned library.
 - Rescan with the circular arrow in the header.
 
-The library opens on the left at 780×700, with Zathura on the right at
-600×800. Both are floating windows and remain resizable. `shell.json` enables
+The library opens on the left at 780×620, with Zathura on the right at
+600×700. Both are floating windows and remain resizable. `shell.json` enables
 the panel, and Hyprland places both windows side by side.
+
+Resize the PDF Library with `Super + Ctrl + Shift + ←/→` for width and
+`Super + Ctrl + Shift + ↑/↓` for height, in 80-pixel steps. `Super + right-drag`
+also resizes the focused floating window.
 
 Resize Zathura from the keyboard in 80-pixel steps: `Super + Ctrl + Alt + ←`
 narrows it, `→` widens it, `↑` shortens it, and `↓` increases its height.

@@ -387,9 +387,9 @@ Item {
   FloatingWindow {
     id: window
     title: "PDF Library"
-    implicitWidth: 960
-    implicitHeight: 640
-    minimumSize: Qt.size(780, 520)
+    implicitWidth: 780
+    implicitHeight: 620
+    minimumSize: Qt.size(620, 420)
     color: "transparent"
     visible: root.opened
     onVisibleChanged: {

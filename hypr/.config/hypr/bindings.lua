@@ -34,6 +34,13 @@ o.bind("SUPER + M", "YouTube Music", { focus = "YouTube Music", launch = "google
 -- Toggle the PDF Library hosted inside Omarchy's existing Quickshell process.
 o.bind("SUPER + ALT + N", "PDF Library", "omarchy-shell shell toggle natori.pdf-library '{}'")
 
+-- Resize the PDF Library from the keyboard in 80-pixel steps.
+local pdfLibraryWindow = "title:^PDF Library$"
+o.bind("SUPER + CTRL + SHIFT + LEFT", "Narrow PDF Library", hl.dsp.window.resize({ window = pdfLibraryWindow, x = -80, y = 0, relative = true }))
+o.bind("SUPER + CTRL + SHIFT + RIGHT", "Widen PDF Library", hl.dsp.window.resize({ window = pdfLibraryWindow, x = 80, y = 0, relative = true }))
+o.bind("SUPER + CTRL + SHIFT + UP", "Shorten PDF Library", hl.dsp.window.resize({ window = pdfLibraryWindow, x = 0, y = -80, relative = true }))
+o.bind("SUPER + CTRL + SHIFT + DOWN", "Increase PDF Library height", hl.dsp.window.resize({ window = pdfLibraryWindow, x = 0, y = 80, relative = true }))
+
 -- Resize the Zathura window from the keyboard in 80-pixel steps.
 local zathuraWindow = "class:^org\\.pwmt\\.zathura$"
 o.bind("SUPER + CTRL + ALT + LEFT", "Narrow Zathura", hl.dsp.window.resize({ window = zathuraWindow, x = -80, y = 0, relative = true }))

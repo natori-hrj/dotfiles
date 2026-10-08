@@ -1,0 +1,20 @@
+# GNU Stow defaults.
+RCS
+.+,v
+CVS
+\.\#.+
+\.cvsignore
+\.svn
+_darcs
+\.hg
+\.git
+\.gitignore
+\.gitmodules
+.+~
+\#.*\#
+^/README.*
+^/LICENSE.*
+^/COPYING
+
+# Install this plugin as real files so Omarchy's validator accepts it.
+^/\.config/omarchy/plugins/natori\.pdf-library(?:/.*)?$

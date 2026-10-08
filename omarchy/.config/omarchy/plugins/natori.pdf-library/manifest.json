@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "id": "natori.pdf-library",
+  "name": "PDF Library",
+  "version": "1.0.0",
+  "author": "natori",
+  "description": "A searchable PDF library with favorites, reading history, and Zathura handoff.",
+  "kinds": [
+    "panel"
+  ],
+  "entryPoints": {
+    "panel": "Panel.qml"
+  }
+}

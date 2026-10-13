@@ -1,83 +1,276 @@
 {
-  "version": 1,
-  "idle": {
-    "screensaver": 150,
-    "lock": 300
-  },
   "bar": {
-    "position": "top",
-    "transparent": true,
+    "centerAnchor": "hancore.shibumi.center",
+    "id": "hancore.shibumi.bar",
     "layout": {
-      "left": [
+      "center": [
         {
-          "id": "donovan.workspaces"
-        },
-        {
-          "id": "crmne.active-window"
+          "id": "hancore.shibumi.center"
         }
       ],
-      "center": [],
+      "left": [
+        {
+          "id": "hancore.shibumi.control-center"
+        },
+        {
+          "id": "hancore.shibumi.workspaces"
+        },
+        {
+          "id": "hancore.shibumi.ai",
+          "shibumiModule": true
+        }
+      ],
       "right": [
         {
-          "id": "meviusisback.agent-orchestr"
+          "id": "hancore.shibumi.battery"
+        },
+        {
+          "displayMode": "icon",
+          "id": "hancore.shibumi.status"
+        },
+        {
+          "id": "hancore.shibumi.media",
+          "shibumiModule": true
         }
       ]
-    }
+    },
+    "position": "top",
+    "style": "shibumi",
+    "transparent": true
+  },
+  "cloneSourceRestores": [
+    "io.github.sirjul1337.lock-explorer"
+  ],
+  "disabledPlugins": [
+    "omarchy.lock"
+  ],
+  "idle": {
+    "lock": 300,
+    "screensaver": 150
   },
   "plugins": [
-    {
-      "id": "omarchy-dynamic-island",
-      "style": "island",
-      "background": "theme",
-      "idle": "pill",
-      "idleFace": "ticker",
-      "scale": 1,
-      "reserveSpace": false,
-      "keybind": false,
-      "monitor": "primary",
-      "layer": "top",
-      "expandOnHover": true,
-      "clockFormat": "HH:mm",
-      "mediaLingerSeconds": 30,
-      "notchWidth": 0,
-      "notchHeight": 0,
-      "notchRadius": 0,
-      "visualizerColor": "accent",
-      "textFont": "theme",
-      "glow": false,
-      "calendars": [],
-      "calendarLeadMinutes": 15,
-      "holidays": "auto",
-      "timerSound": true,
-      "bluetooth": true,
-      "camera": true,
-      "calendar": true,
-      "notifications": true,
-      "inbox": true,
-      "osd": true,
-      "volume": true,
-      "brightness": true,
-      "charging": true,
-      "trackChange": true,
-      "recording": true,
-      "mic": true,
-      "topMargin": 6
-    },
     {
       "id": "natori.pdf-library"
     },
     {
-      "id": "io.github.sirjul1337.lock-explorer",
+      "avatar": "/home/natori/Downloads/profile.jpg",
       "design": "my-natori-glass",
-      "avatar": "/home/natori/Downloads/profile.jpg"
+      "id": "io.github.sirjul1337.lock-explorer"
+    },
+    {
+      "id": "hancore.shibumi.state",
+      "shibumi": {
+        "identityVersion": 3,
+        "launcher": {
+          "icon": "omarchy",
+          "mode": "icon",
+          "text": "shibumi"
+        },
+        "layoutProtection": {
+          "v1": false,
+          "v2": false
+        },
+        "order": {
+          "center": [
+            "G10"
+          ],
+          "left": [
+            "G1",
+            "G5",
+            "G3",
+            "G2",
+            "G4",
+            "G6",
+            "G7"
+          ],
+          "right": [
+            "G8",
+            "G9",
+            "G11",
+            "G14",
+            "G12",
+            "G13",
+            "G15"
+          ]
+        },
+        "picker": {
+          "imageStyle": "omarchy",
+          "mediaStyle": "carousel",
+          "style": "carousel"
+        },
+        "plugins": {
+          "favorites": []
+        },
+        "presentation": {
+          "accent": "foreground",
+          "border": true,
+          "frost": true,
+          "panelBorder": true,
+          "radius": "large",
+          "shadow": false,
+          "shellStyle": "notch",
+          "v1Border": true,
+          "v2Border": true,
+          "v2ShellStyle": "notch"
+        },
+        "reactor": {
+          "mode": 0
+        },
+        "splits": {
+          "boundaries": [
+            true,
+            true
+          ],
+          "center": [],
+          "left": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "right": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ]
+        },
+        "v1SlotRoles": {
+          "center": [
+            "base"
+          ],
+          "left": [
+            "base",
+            "base",
+            "base",
+            "base",
+            "base",
+            "base",
+            "base"
+          ],
+          "right": [
+            "base",
+            "base",
+            "base",
+            "base",
+            "base",
+            "base",
+            "base"
+          ]
+        },
+        "v2Boundaries": [
+          true,
+          true
+        ],
+        "v2Layout": {
+          "center": [
+            "G12"
+          ],
+          "left": [
+            "G1",
+            "G2",
+            "G8",
+            "",
+            "G5",
+            "G6",
+            "G4",
+            "G7",
+            "",
+            ""
+          ],
+          "right": [
+            "G9",
+            "G10",
+            "G11",
+            "G14",
+            "G3",
+            "G13",
+            "G16",
+            "G18",
+            "G17",
+            "G15"
+          ]
+        },
+        "version": 1,
+        "widgets": {
+          "G14": {
+            "enabled": false
+          },
+          "G15": {
+            "enabled": false
+          },
+          "G16": {
+            "source": "cpu",
+            "unit": "metric"
+          },
+          "G2": {
+            "enabledV1": false,
+            "separator": true
+          },
+          "G7": {
+            "appearance": {
+              "v2": {
+                "colorMode": "none",
+                "widgetBorder": false,
+                "widgetPadding": "auto"
+              }
+            },
+            "enabled": false,
+            "enabledV1": false,
+            "enabledV2": true
+          },
+          "G8": {
+            "omarchy.clock": {
+              "clock12h": false
+            }
+          },
+          "G9": {
+            "appearance": {
+              "v2": {
+                "batteryOrientation": "horizontal",
+                "color": "inherit",
+                "colorMode": "fill",
+                "compact": false,
+                "displayMode": "full",
+                "mediaStyle": "default",
+                "surfaceOpacity": 1,
+                "tone": "auto",
+                "widgetBorder": false,
+                "widgetBorderColor": "inherit",
+                "widgetBorderUsesSurfaceColor": false,
+                "widgetBorderWidth": 1,
+                "widgetPadding": "auto",
+                "widgetRadius": "auto"
+              }
+            },
+            "enabledV1": true,
+            "enabledV2": true
+          }
+        },
+        "workspace": {
+          "mode": "10",
+          "style": "pacman",
+          "version": 1
+        }
+      },
+      "shibumiStateSchemaVersion": 1
+    },
+    {
+      "id": "hancore.shibumi.reactor"
+    },
+    {
+      "id": "hancore.shibumi.telemetry"
+    },
+    {
+      "id": "hancore.shibumi.power-state"
+    },
+    {
+      "id": "hancore.shibumi.update-center"
     }
   ],
-  "disabledPlugins": [
-    "omarchy.lock",
-    "omarchy.notifications",
-    "omarchy.osd"
-  ],
-  "cloneSourceRestores": [
-    "io.github.sirjul1337.lock-explorer"
-  ]
+  "version": 1
 }

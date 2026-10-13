@@ -71,9 +71,12 @@ commands, so Omarchy's keybinds and scripts keep working:
 
 * **New notification**: it appears as a banner with the app icon, title and
   body, plus the sender's buttons if it has any. It is saved as unread as soon
-  as it arrives. Hovering keeps the banner up.
+  as it arrives. The banner hides automatically after a short timeout; critical
+  notifications stay for 10 seconds. Hovering keeps the banner up. Clicking
+  the banner dismisses it without running the sender's action.
 * **Open a notification**: runs the sender's action and focuses the app's
-  window, then marks the saved entry read. It stays in history until cleared.
+  window, then marks the saved entry read. Open one from the inbox when needed;
+  it stays in history until cleared.
 * **Notification history**: when the island expands on hover, its bell sits
   beside Codex Usage and Daily Stats. When unread notifications exist, the
   bell and unread count move to the compact island. Hover the bell or press

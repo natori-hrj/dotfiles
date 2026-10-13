@@ -138,11 +138,11 @@ Item {
     return entry.app === "omarchy-action" || (entry.app === "notify-send" && entry.critical)
   }
 
-  // How long a banner holds, iOS short. Critical ones stay until handled; a
-  // sender's own longer timeout is honoured.
+  // Critical banners stay longer, then move out of the way while remaining
+  // unread in the inbox. A sender's own longer timeout is honoured.
   function durationFor(entry) {
-    if (!entry || entry.critical) return 0
-    var base = entry.low ? 4000 : 6000
+    if (!entry) return 0
+    var base = entry.critical ? 10000 : (entry.low ? 4000 : 6000)
     return Math.min(30000, Math.max(base, entry.timeout > 0 ? entry.timeout : 0))
   }
 

@@ -5,8 +5,8 @@ import "../IslandModel.js" as Model
 // A notification, iOS-banner style: app icon, app name, summary and body,
 // with the sender's action buttons along the bottom when it has any.
 //
-// Click invokes it (default action, or focus the app); right or middle
-// click dismisses it. Hovering holds it open.
+// Clicking the banner dismisses it. Open a notification from the inbox when
+// you want to invoke its sender; hovering holds the banner open.
 Item {
   id: view
 
@@ -24,11 +24,7 @@ Item {
     anchors.fill: parent
     acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
     cursorShape: Qt.PointingHandCursor
-    onClicked: function(mouse) {
-      if (!view.entry) return
-      if (mouse.button === Qt.LeftButton) island.notificationOpen(view.entry.key)
-      else island.notificationDismiss(view.entry.key)
-    }
+    onClicked: if (view.entry) island.notificationDismiss(view.entry.key)
   }
 
   AlbumArt {

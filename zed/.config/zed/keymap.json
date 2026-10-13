@@ -1,0 +1,11 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-shift-alt-t": [
+        "task::Spawn",
+        { "task_name": "Open Ghostty here" }
+      ]
+    }
+  }
+]

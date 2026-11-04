@@ -115,7 +115,9 @@ def main():
     ]
 
     try:
-        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+        process = subprocess.Popen(
+            command, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL
+        )
     except OSError:
         return 1
 

@@ -12,7 +12,10 @@ import tempfile
 import time
 
 
-STATE_DIR = Path(os.environ.get("XDG_STATE_HOME", Path.home() / ".local/state")) / "omarchy/dynamic-island"
+STATE_DIR = (
+    Path(os.environ.get("XDG_STATE_HOME", Path.home() / ".local/state"))
+    / "omarchy/dynamic-island"
+)
 STATE_FILE = STATE_DIR / "daily-stats.json"
 KEEP_DAYS = 14
 MAX_INTERVAL_SECONDS = 36 * 60 * 60
@@ -28,8 +31,11 @@ def read_float(path: Path) -> float | None:
 def battery_percentage() -> float | None:
     power_supplies = Path("/sys/class/power_supply")
     try:
-        batteries = [p for p in power_supplies.iterdir()
-                     if (p / "type").read_text(encoding="ascii").strip() == "Battery"]
+        batteries = [
+            p
+            for p in power_supplies.iterdir()
+            if (p / "type").read_text(encoding="ascii").strip() == "Battery"
+        ]
     except OSError:
         return None
 
@@ -43,7 +49,10 @@ def battery_percentage() -> float | None:
     else:
         charge_now = [read_float(p / "charge_now") for p in batteries]
         charge_full = [read_float(p / "charge_full") for p in batteries]
-        if all(v is not None for v in charge_now + charge_full) and sum(charge_full) > 0:
+        if (
+            all(v is not None for v in charge_now + charge_full)
+            and sum(charge_full) > 0
+        ):
             percent = 100 * sum(charge_now) / sum(charge_full)
         else:
             capacities = [read_float(p / "capacity") for p in batteries]
@@ -67,7 +76,9 @@ def day_record(days: dict, day: dt.date) -> dict:
     return days[key]
 
 
-def add_uptime_interval(days: dict, start: float, end: float, uptime_delta: float) -> None:
+def add_uptime_interval(
+    days: dict, start: float, end: float, uptime_delta: float
+) -> None:
     wall_delta = end - start
     if wall_delta <= 0 or wall_delta > MAX_INTERVAL_SECONDS or uptime_delta <= 0:
         return
@@ -76,8 +87,9 @@ def add_uptime_interval(days: dict, start: float, end: float, uptime_delta: floa
     while cursor < end:
         local = dt.datetime.fromtimestamp(cursor)
         next_date = local.date() + dt.timedelta(days=1)
-        midnight = time.mktime((next_date.year, next_date.month, next_date.day,
-                                0, 0, 0, -1, -1, -1))
+        midnight = time.mktime(
+            (next_date.year, next_date.month, next_date.day, 0, 0, 0, -1, -1, -1)
+        )
         segment_end = min(end, midnight if midnight > cursor else end)
         segment = segment_end - cursor
         record = day_record(days, local.date())
@@ -97,7 +109,9 @@ def load_state() -> dict:
 
 def save_state(state: dict) -> None:
     STATE_DIR.mkdir(parents=True, exist_ok=True)
-    fd, temporary = tempfile.mkstemp(prefix="daily-stats-", suffix=".json", dir=STATE_DIR)
+    fd, temporary = tempfile.mkstemp(
+        prefix="daily-stats-", suffix=".json", dir=STATE_DIR
+    )
     try:
         with os.fdopen(fd, "w", encoding="utf-8") as stream:
             json.dump(state, stream, separators=(",", ":"), ensure_ascii=False)
@@ -116,15 +130,21 @@ def sample() -> dict:
     uptime = read_float(Path("/proc/uptime"))
     if uptime is None:
         raise RuntimeError("System uptime is unavailable")
-    boot_id = Path("/proc/sys/kernel/random/boot_id").read_text(encoding="ascii").strip()
+    boot_id = (
+        Path("/proc/sys/kernel/random/boot_id").read_text(encoding="ascii").strip()
+    )
     battery = battery_percentage()
     state = load_state()
     days = state["days"]
     previous = state.get("lastSample")
 
     if previous and previous.get("bootId") == boot_id:
-        add_uptime_interval(days, float(previous.get("timestamp", now)), now,
-                            uptime - float(previous.get("uptimeSeconds", uptime)))
+        add_uptime_interval(
+            days,
+            float(previous.get("timestamp", now)),
+            now,
+            uptime - float(previous.get("uptimeSeconds", uptime)),
+        )
 
     record = day_record(days, today)
     record["sampleCount"] = int(record.get("sampleCount", 0)) + 1
@@ -138,11 +158,20 @@ def sample() -> dict:
     }
 
     cutoff = today - dt.timedelta(days=KEEP_DAYS - 1)
-    state["days"] = {key: value for key, value in days.items()
-                      if key >= cutoff.isoformat() and key <= today.isoformat()}
+    state["days"] = {
+        key: value
+        for key, value in days.items()
+        if key >= cutoff.isoformat() and key <= today.isoformat()
+    }
     for record in state["days"].values():
-        for obsolete in ("batteryStart", "batteryEnd", "batteryMin", "batteryMax",
-                         "batteryUsed", "buckets"):
+        for obsolete in (
+            "batteryStart",
+            "batteryEnd",
+            "batteryMin",
+            "batteryMax",
+            "batteryUsed",
+            "buckets",
+        ):
             record.pop(obsolete, None)
     save_state(state)
     return make_output(state, today)
@@ -150,13 +179,15 @@ def sample() -> dict:
 
 def make_output(state: dict, today: dt.date) -> dict:
     last = state.get("lastSample") or {}
+
     def output_day(day: dt.date) -> dict:
         record = state["days"].get(day.isoformat(), {})
         return {
             "date": day.isoformat(),
             "uptimeSeconds": round(record.get("uptimeSeconds", 0)),
-            "hasData": bool(record.get("uptimeSeconds", 0) > 0
-                             or record.get("sampleCount", 0) > 0),
+            "hasData": bool(
+                record.get("uptimeSeconds", 0) > 0 or record.get("sampleCount", 0) > 0
+            ),
         }
 
     week_start = today - dt.timedelta(days=today.weekday())
@@ -176,5 +207,7 @@ if __name__ == "__main__":
     try:
         print(json.dumps(sample(), separators=(",", ":")))
     except Exception as error:  # Keep provider failures inside the optional widget.
-        print(json.dumps({"available": False, "error": str(error)}, separators=(",", ":")))
+        print(
+            json.dumps({"available": False, "error": str(error)}, separators=(",", ":"))
+        )
         sys.exit(0)

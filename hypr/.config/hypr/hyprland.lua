@@ -17,10 +17,15 @@ require("default.hypr.omarchy")
 -- defaults so package updates can improve the defaults without rewriting
 -- your ~/.config/hypr files.
 require("hypr.monitors")
+-- The LG HDR WFHD's native mode is 2560x1080; preferred selects 1920x1080.
+hl.monitor({ output = "DP-2", mode = "2560x1080@75", position = "auto", scale = 1 })
 require("hypr.input")
 require("hypr.bindings")
 require("hypr.looknfeel")
 require("hypr.autostart")
+
+-- Use a US layout only on the connected Lofree Flow84 keyboard.
+hl.device({ name = "flow84@lofree", kb_layout = "us" })
 
 -- Toggle config flags dynamically.
 require("default.hypr.toggles")

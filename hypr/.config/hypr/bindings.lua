@@ -1,6 +1,9 @@
 -- Keep only your personal keybinding overrides here. Add new bindings or
 -- unbind defaults before replacing them.
 
+-- Leave Ctrl+Space to Fcitx5 for Japanese/English input switching.
+hl.unbind("CTRL + SPACE")
+
 -- See current bindings and descriptions:
 --   omarchy menu keybindings --print
 

@@ -5,7 +5,7 @@ config-file = ?"~/.local/state/omarchy/current/theme/ghostty.conf"
 config-file = "themes/grayscale-graphite.conf"
 
 # background
-background-opacity = 0.75
+background-opacity = 0.88
 
 # Font
 font-family = "JetBrainsMono Nerd Font"

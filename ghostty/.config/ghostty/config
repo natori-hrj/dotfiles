@@ -1,16 +1,13 @@
 # Dynamic theme colors
 config-file = ?"~/.local/state/omarchy/current/theme/ghostty.conf"
 
-# Apply the Grayscale Graphite palette after Omarchy's generated theme colors.
-config-file = "themes/grayscale-graphite.conf"
-
 # background
 background-opacity = 0.88
 
 # Font
-font-family = "JetBrainsMono Nerd Font"
 font-style = Regular
 font-size = 9
+config-file = ?"~/.local/state/omarchy/current/theme/ghostty-font.conf"
 
 # Window
 window-theme = ghostty

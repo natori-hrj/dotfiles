@@ -3,7 +3,8 @@
 A dark, spellbook-inspired Omarchy theme: ink-black plum surfaces, vellum text,
 muted violet shadows, and aged-gold highlights. Its widescreen backgrounds keep
 the left side quiet for application windows and place the mage and spellbook on
-the right.
+the right. Ghostty uses JetBrains Mono at a slightly larger size, warm readable
+text, and a richer gold terminal palette while this theme is active.
 
 Switch from the current Vantablack look with:
 

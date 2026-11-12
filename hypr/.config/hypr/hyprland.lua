@@ -25,7 +25,7 @@ require("hypr.looknfeel")
 require("hypr.autostart")
 
 -- Use a US layout only on the connected Lofree Flow84 keyboard.
-hl.device({ name = "flow84@lofree", kb_layout = "us" })
+hl.device({ name = "flow84@lofree", kb_layout = "us", kb_options = "ctrl:nocaps" })
 
 -- Toggle config flags dynamically.
 require("default.hypr.toggles")
